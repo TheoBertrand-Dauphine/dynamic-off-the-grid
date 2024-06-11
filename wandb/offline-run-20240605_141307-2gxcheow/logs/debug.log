@@ -1,0 +1,38 @@
+2024-06-05 14:13:07,906 INFO    MainThread:294155 [wandb_setup.py:_flush():68] Configure stats pid to 294155
+2024-06-05 14:13:07,906 INFO    MainThread:294155 [wandb_setup.py:_flush():68] Loading settings from /home/tbertrand/.config/wandb/settings
+2024-06-05 14:13:07,906 INFO    MainThread:294155 [wandb_setup.py:_flush():68] Loading settings from /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/settings
+2024-06-05 14:13:07,906 INFO    MainThread:294155 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2024-06-05 14:13:07,906 INFO    MainThread:294155 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'unraveled_frank_wolfe_3_spikes.py', 'program': '/home/tbertrand/Bureau/dynamic-off-the-grid/unraveled_frank_wolfe_3_spikes.py'}
+2024-06-05 14:13:07,906 INFO    MainThread:294155 [wandb_init.py:_log_setup():476] Logging user logs to /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/offline-run-20240605_141307-2gxcheow/logs/debug.log
+2024-06-05 14:13:07,906 INFO    MainThread:294155 [wandb_init.py:_log_setup():477] Logging internal logs to /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/offline-run-20240605_141307-2gxcheow/logs/debug-internal.log
+2024-06-05 14:13:07,906 INFO    MainThread:294155 [wandb_init.py:_jupyter_setup():426] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x7efce294f8b0>
+2024-06-05 14:13:07,907 INFO    MainThread:294155 [wandb_init.py:init():516] calling init triggers
+2024-06-05 14:13:07,907 INFO    MainThread:294155 [wandb_init.py:init():519] wandb.init called with sweep_config: {}
+config: {'epochs': 500, 'regularization': 1e-05, 'n': 32, 'nc': 32, 'geometry': 'euclidean', 'method': 'exponential_RS', 'lr': 0.01, 'nb_pics': 3, 'epsilon': 1.0, 'xi': 1.0}
+2024-06-05 14:13:07,907 INFO    MainThread:294155 [wandb_init.py:init():569] starting backend
+2024-06-05 14:13:07,907 INFO    MainThread:294155 [wandb_init.py:init():573] setting up manager
+2024-06-05 14:13:07,908 INFO    MainThread:294155 [backend.py:_multiprocessing_setup():102] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-06-05 14:13:07,909 INFO    MainThread:294155 [wandb_init.py:init():580] backend started and connected
+2024-06-05 14:13:07,913 INFO    MainThread:294155 [wandb_run.py:_label_probe_notebook():1113] probe notebook
+2024-06-05 14:13:07,913 INFO    MainThread:294155 [wandb_run.py:_label_probe_notebook():1123] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-06-05 14:13:07,913 INFO    MainThread:294155 [wandb_init.py:init():658] updated telemetry
+2024-06-05 14:13:07,917 INFO    MainThread:294155 [wandb_init.py:init():728] starting run threads in backend
+2024-06-05 14:13:08,453 WARNING MainThread:294155 [wandb_init.py:init():1099] interrupted
+Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1078, in init
+    run = wi.init()
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 739, in init
+    _ = backend.interface.communicate_run_start(run_obj)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 235, in communicate_run_start
+    result = self._communicate_run_start(run_start)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 484, in _communicate_run_start
+    result = self._communicate(rec)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 255, in _communicate
+    return self._communicate_async(rec, local=local).get(timeout=timeout)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/interface/router.py", line 36, in get
+    is_set = self._object_ready.wait(timeout)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/threading.py", line 607, in wait
+    signaled = self._cond.wait(timeout)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/threading.py", line 324, in wait
+    gotit = waiter.acquire(True, timeout)
+KeyboardInterrupt

@@ -1,0 +1,146 @@
+2023-11-30 21:13:06,688 INFO    StreamThr :10318 [internal.py:wandb_internal():88] W&B internal server running at pid: 10318, started at: 2023-11-30 21:13:06.686517
+2023-11-30 21:13:06,691 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: status
+2023-11-30 21:13:06,694 DEBUG   SenderThread:10318 [sender.py:send_request():317] send_request: status
+2023-11-30 21:13:06,697 INFO    WriterThread:10318 [datastore.py:open_for_write():75] open: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_211306-gp3htin3/run-gp3htin3.wandb
+2023-11-30 21:13:06,697 DEBUG   SenderThread:10318 [sender.py:send():303] send: header
+2023-11-30 21:13:06,698 DEBUG   SenderThread:10318 [sender.py:send():303] send: run
+2023-11-30 21:13:11,696 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:13:16,698 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:13:21,700 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:13:26,702 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:13:31,704 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:13:36,706 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:13:38,265 ERROR   SenderThread:10318 [internal_api.py:execute():213] 409 response executing GraphQL.
+2023-11-30 21:13:38,265 ERROR   SenderThread:10318 [internal_api.py:execute():214] {"errors":[{"message":"Error 1062 (23000): Duplicate entry '38497093-gp3htin3' for key 'PRIMARY'","path":["upsertBucket"]}],"data":{"upsertBucket":null}}
+2023-11-30 21:13:38,266 ERROR   SenderThread:10318 [retry.py:__call__():154] Retry attempt failed:
+Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 113, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 210, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/transport/requests.py", line 39, in execute
+    request.raise_for_status()
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 409 Client Error: Conflict for url: https://api.wandb.ai/graphql
+2023-11-30 21:13:41,707 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:13:46,709 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:13:51,711 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:13:56,714 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:14:01,715 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:14:07,731 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: poll_exit
+2023-11-30 21:14:11,342 INFO    SenderThread:10318 [dir_watcher.py:__init__():216] watching files in: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_211306-gp3htin3/files
+2023-11-30 21:14:11,342 INFO    SenderThread:10318 [sender.py:_start_run_threads():928] run started: gp3htin3 with start time 1701375186.680858
+2023-11-30 21:14:11,342 DEBUG   SenderThread:10318 [sender.py:send():303] send: exit
+2023-11-30 21:14:11,343 INFO    SenderThread:10318 [sender.py:send_exit():442] handling exit code: 1
+2023-11-30 21:14:11,343 INFO    SenderThread:10318 [sender.py:send_exit():444] handling runtime: 0
+2023-11-30 21:14:11,343 INFO    SenderThread:10318 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-11-30 21:14:11,344 INFO    SenderThread:10318 [sender.py:send_exit():450] send defer
+2023-11-30 21:14:11,344 DEBUG   SenderThread:10318 [sender.py:send_request():317] send_request: poll_exit
+2023-11-30 21:14:11,345 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 21:14:11,345 INFO    HandlerThread:10318 [handler.py:handle_request_defer():162] handle defer: 0
+2023-11-30 21:14:11,346 DEBUG   SenderThread:10318 [sender.py:send_request():317] send_request: defer
+2023-11-30 21:14:11,346 INFO    SenderThread:10318 [sender.py:send_request_defer():459] handle sender defer: 0
+2023-11-30 21:14:11,346 INFO    SenderThread:10318 [sender.py:transition_state():463] send defer: 1
+2023-11-30 21:14:11,347 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 21:14:11,347 INFO    HandlerThread:10318 [handler.py:handle_request_defer():162] handle defer: 1
+2023-11-30 21:14:11,347 DEBUG   SenderThread:10318 [sender.py:send_request():317] send_request: defer
+2023-11-30 21:14:11,347 INFO    SenderThread:10318 [sender.py:send_request_defer():459] handle sender defer: 1
+2023-11-30 21:14:11,347 INFO    SenderThread:10318 [sender.py:transition_state():463] send defer: 2
+2023-11-30 21:14:11,348 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 21:14:11,348 INFO    HandlerThread:10318 [handler.py:handle_request_defer():162] handle defer: 2
+2023-11-30 21:14:11,349 DEBUG   SenderThread:10318 [sender.py:send_request():317] send_request: defer
+2023-11-30 21:14:11,349 INFO    SenderThread:10318 [sender.py:send_request_defer():459] handle sender defer: 2
+2023-11-30 21:14:11,349 INFO    SenderThread:10318 [sender.py:transition_state():463] send defer: 3
+2023-11-30 21:14:11,349 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 21:14:11,350 INFO    HandlerThread:10318 [handler.py:handle_request_defer():162] handle defer: 3
+2023-11-30 21:14:11,350 DEBUG   SenderThread:10318 [sender.py:send_request():317] send_request: defer
+2023-11-30 21:14:11,350 INFO    SenderThread:10318 [sender.py:send_request_defer():459] handle sender defer: 3
+2023-11-30 21:14:11,350 INFO    SenderThread:10318 [sender.py:transition_state():463] send defer: 4
+2023-11-30 21:14:11,351 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 21:14:11,351 INFO    HandlerThread:10318 [handler.py:handle_request_defer():162] handle defer: 4
+2023-11-30 21:14:11,351 DEBUG   SenderThread:10318 [sender.py:send():303] send: summary
+2023-11-30 21:14:11,352 INFO    SenderThread:10318 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-11-30 21:14:11,352 DEBUG   SenderThread:10318 [sender.py:send_request():317] send_request: defer
+2023-11-30 21:14:11,352 INFO    SenderThread:10318 [sender.py:send_request_defer():459] handle sender defer: 4
+2023-11-30 21:14:11,353 INFO    SenderThread:10318 [sender.py:transition_state():463] send defer: 5
+2023-11-30 21:14:11,353 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 21:14:11,353 INFO    HandlerThread:10318 [handler.py:handle_request_defer():162] handle defer: 5
+2023-11-30 21:14:11,354 DEBUG   SenderThread:10318 [sender.py:send_request():317] send_request: defer
+2023-11-30 21:14:11,354 INFO    SenderThread:10318 [sender.py:send_request_defer():459] handle sender defer: 5
+2023-11-30 21:14:11,354 INFO    SenderThread:10318 [sender.py:transition_state():463] send defer: 6
+2023-11-30 21:14:11,354 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 21:14:11,355 INFO    HandlerThread:10318 [handler.py:handle_request_defer():162] handle defer: 6
+2023-11-30 21:14:11,355 DEBUG   SenderThread:10318 [sender.py:send_request():317] send_request: defer
+2023-11-30 21:14:11,355 INFO    SenderThread:10318 [sender.py:send_request_defer():459] handle sender defer: 6
+2023-11-30 21:14:11,355 INFO    SenderThread:10318 [sender.py:transition_state():463] send defer: 7
+2023-11-30 21:14:11,356 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 21:14:11,356 INFO    HandlerThread:10318 [handler.py:handle_request_defer():162] handle defer: 7
+2023-11-30 21:14:11,356 DEBUG   SenderThread:10318 [sender.py:send_request():317] send_request: defer
+2023-11-30 21:14:11,356 INFO    SenderThread:10318 [sender.py:send_request_defer():459] handle sender defer: 7
+2023-11-30 21:14:11,357 INFO    SenderThread:10318 [dir_watcher.py:finish():362] shutting down directory watcher
+2023-11-30 21:14:12,343 INFO    Thread-13 :10318 [dir_watcher.py:_on_file_created():275] file/dir created: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_211306-gp3htin3/files/wandb-summary.json
+2023-11-30 21:14:12,343 INFO    SenderThread:10318 [dir_watcher.py:finish():392] scan: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_211306-gp3htin3/files
+2023-11-30 21:14:12,343 INFO    SenderThread:10318 [dir_watcher.py:finish():406] scan save: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_211306-gp3htin3/files/wandb-summary.json wandb-summary.json
+2023-11-30 21:14:12,343 INFO    SenderThread:10318 [dir_watcher.py:finish():406] scan save: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_211306-gp3htin3/files/config.yaml config.yaml
+2023-11-30 21:14:12,343 INFO    SenderThread:10318 [sender.py:transition_state():463] send defer: 8
+2023-11-30 21:14:12,345 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 21:14:12,345 INFO    HandlerThread:10318 [handler.py:handle_request_defer():162] handle defer: 8
+2023-11-30 21:14:12,345 DEBUG   SenderThread:10318 [sender.py:send_request():317] send_request: defer
+2023-11-30 21:14:12,345 INFO    SenderThread:10318 [sender.py:send_request_defer():459] handle sender defer: 8
+2023-11-30 21:14:12,347 INFO    SenderThread:10318 [file_pusher.py:finish():168] shutting down file pusher
+2023-11-30 21:14:12,733 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:14:14,067 INFO    Thread-15 :10318 [upload_job.py:push():143] Uploaded file /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_211306-gp3htin3/files/wandb-summary.json
+2023-11-30 21:14:17,735 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:14:22,738 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:14:27,741 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:14:31,169 INFO    Thread-16 :10318 [upload_job.py:push():143] Uploaded file /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_211306-gp3htin3/files/config.yaml
+2023-11-30 21:14:31,370 INFO    Thread-12 (_thread_body):10318 [sender.py:transition_state():463] send defer: 9
+2023-11-30 21:14:31,371 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 21:14:31,371 INFO    HandlerThread:10318 [handler.py:handle_request_defer():162] handle defer: 9
+2023-11-30 21:14:31,372 DEBUG   SenderThread:10318 [sender.py:send_request():317] send_request: defer
+2023-11-30 21:14:31,372 INFO    SenderThread:10318 [sender.py:send_request_defer():459] handle sender defer: 9
+2023-11-30 21:14:31,372 INFO    SenderThread:10318 [file_pusher.py:join():173] waiting for file pusher
+2023-11-30 21:14:31,372 INFO    SenderThread:10318 [sender.py:transition_state():463] send defer: 10
+2023-11-30 21:14:31,373 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 21:14:31,374 INFO    HandlerThread:10318 [handler.py:handle_request_defer():162] handle defer: 10
+2023-11-30 21:14:31,374 DEBUG   SenderThread:10318 [sender.py:send_request():317] send_request: defer
+2023-11-30 21:14:31,374 INFO    SenderThread:10318 [sender.py:send_request_defer():459] handle sender defer: 10
+2023-11-30 21:14:32,743 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:14:37,746 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:14:42,749 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:14:47,751 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:14:52,754 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:14:57,756 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: keepalive
+2023-11-30 21:14:58,730 INFO    SenderThread:10318 [sender.py:transition_state():463] send defer: 11
+2023-11-30 21:14:58,731 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 21:14:58,731 INFO    HandlerThread:10318 [handler.py:handle_request_defer():162] handle defer: 11
+2023-11-30 21:14:58,732 DEBUG   SenderThread:10318 [sender.py:send_request():317] send_request: defer
+2023-11-30 21:14:58,732 INFO    SenderThread:10318 [sender.py:send_request_defer():459] handle sender defer: 11
+2023-11-30 21:14:58,732 INFO    SenderThread:10318 [sender.py:transition_state():463] send defer: 12
+2023-11-30 21:14:58,733 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 21:14:58,733 INFO    HandlerThread:10318 [handler.py:handle_request_defer():162] handle defer: 12
+2023-11-30 21:14:58,734 DEBUG   SenderThread:10318 [sender.py:send():303] send: final
+2023-11-30 21:14:58,734 DEBUG   SenderThread:10318 [sender.py:send():303] send: footer
+2023-11-30 21:14:58,734 DEBUG   SenderThread:10318 [sender.py:send_request():317] send_request: defer
+2023-11-30 21:14:58,734 INFO    SenderThread:10318 [sender.py:send_request_defer():459] handle sender defer: 12
+2023-11-30 21:14:58,736 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: poll_exit
+2023-11-30 21:14:58,736 DEBUG   SenderThread:10318 [sender.py:send_request():317] send_request: poll_exit
+2023-11-30 21:14:58,738 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: server_info
+2023-11-30 21:14:58,738 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: get_summary
+2023-11-30 21:14:58,738 DEBUG   SenderThread:10318 [sender.py:send_request():317] send_request: server_info
+2023-11-30 21:14:58,738 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: sampled_history
+2023-11-30 21:15:02,338 INFO    MainThread:10318 [wandb_run.py:_footer_history_summary_info():3377] rendering history
+2023-11-30 21:15:02,338 INFO    MainThread:10318 [wandb_run.py:_footer_history_summary_info():3409] rendering summary
+2023-11-30 21:15:02,339 INFO    MainThread:10318 [wandb_run.py:_footer_sync_info():3333] logging synced files
+2023-11-30 21:15:02,340 DEBUG   HandlerThread:10318 [handler.py:handle_request():139] handle_request: shutdown
+2023-11-30 21:15:02,340 INFO    HandlerThread:10318 [handler.py:finish():814] shutting down handler
+2023-11-30 21:15:02,735 INFO    WriterThread:10318 [datastore.py:close():279] close: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_211306-gp3htin3/run-gp3htin3.wandb
+2023-11-30 21:15:03,338 INFO    SenderThread:10318 [sender.py:finish():1331] shutting down sender
+2023-11-30 21:15:03,339 INFO    SenderThread:10318 [file_pusher.py:finish():168] shutting down file pusher
+2023-11-30 21:15:03,339 INFO    SenderThread:10318 [file_pusher.py:join():173] waiting for file pusher
+2023-11-30 21:15:03,343 INFO    MainThread:10318 [internal.py:handle_exit():78] Internal process exited

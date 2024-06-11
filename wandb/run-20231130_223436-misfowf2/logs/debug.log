@@ -1,0 +1,33 @@
+2023-11-30 22:34:36,102 INFO    MainThread:89218 [wandb_setup.py:_flush():68] Configure stats pid to 89218
+2023-11-30 22:34:36,102 INFO    MainThread:89218 [wandb_setup.py:_flush():68] Loading settings from /home/tbertrand/.config/wandb/settings
+2023-11-30 22:34:36,102 INFO    MainThread:89218 [wandb_setup.py:_flush():68] Loading settings from /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/settings
+2023-11-30 22:34:36,102 INFO    MainThread:89218 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True', 'entity': 'tbertrand', 'project': 'dynamic-off-the-grid', 'sweep_id': 'fiwfk8e1', 'root_dir': '/home/tbertrand/Bureau/dynamic-off-the-grid', 'run_id': 'misfowf2', 'sweep_param_path': '/home/tbertrand/Bureau/dynamic-off-the-grid/wandb/sweep-fiwfk8e1/config-misfowf2.yaml'}
+2023-11-30 22:34:36,102 INFO    MainThread:89218 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'unraveled_frank_wolfe_3_spikes.py', 'program': '/home/tbertrand/Bureau/dynamic-off-the-grid/unraveled_frank_wolfe_3_spikes.py'}
+2023-11-30 22:34:36,102 INFO    MainThread:89218 [wandb_init.py:_log_setup():476] Logging user logs to /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223436-misfowf2/logs/debug.log
+2023-11-30 22:34:36,102 INFO    MainThread:89218 [wandb_init.py:_log_setup():477] Logging internal logs to /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223436-misfowf2/logs/debug-internal.log
+2023-11-30 22:34:36,102 INFO    MainThread:89218 [wandb_init.py:init():516] calling init triggers
+2023-11-30 22:34:36,102 INFO    MainThread:89218 [wandb_init.py:init():519] wandb.init called with sweep_config: {'epochs': 100, 'geometry': 'euclidean', 'lr': 0.0001, 'method': 'bezier', 'nc': 16, 'regularization': 0.0001}
+config: {'epochs': 100, 'regularization': 0.0001, 'n': 32, 'nc': 16, 'geometry': 'euclidean', 'method': 'bezier', 'lr': 0.0001}
+2023-11-30 22:34:36,102 INFO    MainThread:89218 [wandb_init.py:init():569] starting backend
+2023-11-30 22:34:36,102 INFO    MainThread:89218 [wandb_init.py:init():573] setting up manager
+2023-11-30 22:34:36,105 INFO    MainThread:89218 [backend.py:_multiprocessing_setup():102] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-11-30 22:34:36,108 INFO    MainThread:89218 [wandb_init.py:init():580] backend started and connected
+2023-11-30 22:34:36,110 INFO    MainThread:89218 [wandb_run.py:_config_callback():1160] config_cb None None {'epochs': 100, 'geometry': 'euclidean', 'lr': 0.0001, 'method': 'bezier', 'nc': 16, 'regularization': 0.0001}
+2023-11-30 22:34:36,111 INFO    MainThread:89218 [wandb_init.py:init():658] updated telemetry
+2023-11-30 22:34:36,113 INFO    MainThread:89218 [wandb_init.py:init():693] communicating run to backend with 60 second timeout
+2023-11-30 22:34:36,596 INFO    MainThread:89218 [wandb_run.py:_on_init():2000] communicating current version
+2023-11-30 22:34:36,702 INFO    MainThread:89218 [wandb_run.py:_on_init():2004] got version response upgrade_message: "wandb version 0.16.0 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-11-30 22:34:36,702 INFO    MainThread:89218 [wandb_init.py:init():728] starting run threads in backend
+2023-11-30 22:34:41,711 INFO    MainThread:89218 [wandb_run.py:_console_start():1980] atexit reg
+2023-11-30 22:34:41,711 INFO    MainThread:89218 [wandb_run.py:_redirect():1838] redirect: SettingsConsole.WRAP_RAW
+2023-11-30 22:34:41,711 INFO    MainThread:89218 [wandb_run.py:_redirect():1903] Wrapping output streams.
+2023-11-30 22:34:41,711 INFO    MainThread:89218 [wandb_run.py:_redirect():1925] Redirects installed.
+2023-11-30 22:34:41,711 INFO    MainThread:89218 [wandb_init.py:init():765] run started, returning control to user process
+2023-11-30 22:34:49,965 INFO    MainThread:89218 [wandb_run.py:_finish():1746] finishing run tbertrand/dynamic-off-the-grid/misfowf2
+2023-11-30 22:34:49,966 INFO    MainThread:89218 [wandb_run.py:_atexit_cleanup():1949] got exitcode: 0
+2023-11-30 22:34:49,966 INFO    MainThread:89218 [wandb_run.py:_restore():1932] restore
+2023-11-30 22:34:49,966 INFO    MainThread:89218 [wandb_run.py:_restore():1938] restore done
+2023-11-30 22:34:54,133 INFO    MainThread:89218 [wandb_run.py:_footer_history_summary_info():3377] rendering history
+2023-11-30 22:34:54,133 INFO    MainThread:89218 [wandb_run.py:_footer_history_summary_info():3409] rendering summary
+2023-11-30 22:34:54,137 INFO    MainThread:89218 [wandb_run.py:_footer_sync_info():3333] logging synced files

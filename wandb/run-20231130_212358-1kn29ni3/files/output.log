@@ -1,0 +1,17 @@
+Computing UFW step 0:   0%|                                                                                                                                                    | 0/10 [00:00<?, ?it/s]/home/tbertrand/Bureau/dynamic-off-the-grid/Discretization_curves.py:81: UserWarning: The use of `x.T` on tensors of dimension other than 2 to reverse their shape is deprecated and it will throw an error in a future release. Consider `x.mT` to transpose batches of matrices or `x.permute(*torch.arange(x.ndim - 1, -1, -1))` to reverse the dimensions of a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/aten/src/ATen/native/TensorShape.cpp:3614.)
+  return list_points[-1].T
+Computing UFW: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:02<00:00,  1.22it/s]
+Traceback (most recent call last):
+  File "/home/tbertrand/Bureau/dynamic-off-the-grid/./unraveled_frank_wolfe_3_spikes.py", line 218, in <module>
+    main(args)
+  File "/home/tbertrand/Bureau/dynamic-off-the-grid/./unraveled_frank_wolfe_3_spikes.py", line 201, in main
+    wandb.log('evaluation', evaluate_solution(result_vec[:,-1,:], y_k))
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 292, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 255, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1609, in log
+    self._log(data=data, step=step, commit=commit)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1386, in _log
+    raise ValueError("wandb.log must be passed a dictionary")
+ValueError: wandb.log must be passed a dictionary

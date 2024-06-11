@@ -1,0 +1,1661 @@
+2023-11-30 21:50:21 ERROR 400 response executing GraphQL.
+2023-11-30 21:50:21 ERROR {"errors":[{"message":"Invalid sweep config: Parameter lr is a disallowed type with grid search. Grid search requires all parameters to be categorical, constant, int_uniform, or q_uniform. Specification of probabilities for categorical parameters is disallowed in grid search","path":["upsertSweep"]}],"data":{"upsertSweep":null}}
+2023-11-30 21:50:21 ERROR Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 113, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 210, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/transport/requests.py", line 39, in execute
+    request.raise_for_status()
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://api.wandb.ai/graphql
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/normalize.py", line 26, in wrapper
+    return func(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2220, in upsert_sweep
+    raise e
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2205, in upsert_sweep
+    response = self.gql(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 129, in __call__
+    retry_timedelta_triggered = check_retry_fn(e)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/util.py", line 974, in no_retry_4xx
+    raise UsageError(body["errors"][0]["message"])
+wandb.errors.UsageError: Invalid sweep config: Parameter lr is a disallowed type with grid search. Grid search requires all parameters to be categorical, constant, int_uniform, or q_uniform. Specification of probabilities for categorical parameters is disallowed in grid search
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/cli/cli.py", line 97, in wrapper
+    return func(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/cli/cli.py", line 933, in sweep
+    sweep_id, warnings = api.upsert_sweep(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/internal.py", line 102, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/normalize.py", line 62, in wrapper
+    raise CommError(message, err).with_traceback(sys.exc_info()[2])
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/normalize.py", line 26, in wrapper
+    return func(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2220, in upsert_sweep
+    raise e
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2205, in upsert_sweep
+    response = self.gql(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 129, in __call__
+    retry_timedelta_triggered = check_retry_fn(e)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/util.py", line 974, in no_retry_4xx
+    raise UsageError(body["errors"][0]["message"])
+wandb.errors.CommError: Invalid sweep config: Parameter lr is a disallowed type with grid search. Grid search requires all parameters to be categorical, constant, int_uniform, or q_uniform. Specification of probabilities for categorical parameters is disallowed in grid search
+
+2023-11-30 21:51:58 ERROR 400 response executing GraphQL.
+2023-11-30 21:51:58 ERROR {"errors":[{"message":"Invalid sweep config: Parameter lr is a disallowed type with grid search. Grid search requires all parameters to be categorical, constant, int_uniform, or q_uniform. Specification of probabilities for categorical parameters is disallowed in grid search","path":["upsertSweep"]}],"data":{"upsertSweep":null}}
+2023-11-30 21:51:58 ERROR Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 113, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 210, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/transport/requests.py", line 39, in execute
+    request.raise_for_status()
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://api.wandb.ai/graphql
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/normalize.py", line 26, in wrapper
+    return func(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2220, in upsert_sweep
+    raise e
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2205, in upsert_sweep
+    response = self.gql(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 129, in __call__
+    retry_timedelta_triggered = check_retry_fn(e)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/util.py", line 974, in no_retry_4xx
+    raise UsageError(body["errors"][0]["message"])
+wandb.errors.UsageError: Invalid sweep config: Parameter lr is a disallowed type with grid search. Grid search requires all parameters to be categorical, constant, int_uniform, or q_uniform. Specification of probabilities for categorical parameters is disallowed in grid search
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/cli/cli.py", line 97, in wrapper
+    return func(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/cli/cli.py", line 933, in sweep
+    sweep_id, warnings = api.upsert_sweep(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/internal.py", line 102, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/normalize.py", line 62, in wrapper
+    raise CommError(message, err).with_traceback(sys.exc_info()[2])
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/normalize.py", line 26, in wrapper
+    return func(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2220, in upsert_sweep
+    raise e
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2205, in upsert_sweep
+    response = self.gql(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 129, in __call__
+    retry_timedelta_triggered = check_retry_fn(e)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/util.py", line 974, in no_retry_4xx
+    raise UsageError(body["errors"][0]["message"])
+wandb.errors.CommError: Invalid sweep config: Parameter lr is a disallowed type with grid search. Grid search requires all parameters to be categorical, constant, int_uniform, or q_uniform. Specification of probabilities for categorical parameters is disallowed in grid search
+
+2023-11-30 21:52:44 ERROR 400 response executing GraphQL.
+2023-11-30 21:52:44 ERROR {"errors":[{"message":"Invalid sweep config: Parameter lr is a disallowed type with grid search. Grid search requires all parameters to be categorical, constant, int_uniform, or q_uniform. Specification of probabilities for categorical parameters is disallowed in grid search","path":["upsertSweep"]}],"data":{"upsertSweep":null}}
+2023-11-30 21:52:44 ERROR Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 113, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 210, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/transport/requests.py", line 39, in execute
+    request.raise_for_status()
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://api.wandb.ai/graphql
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/normalize.py", line 26, in wrapper
+    return func(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2220, in upsert_sweep
+    raise e
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2205, in upsert_sweep
+    response = self.gql(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 129, in __call__
+    retry_timedelta_triggered = check_retry_fn(e)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/util.py", line 974, in no_retry_4xx
+    raise UsageError(body["errors"][0]["message"])
+wandb.errors.UsageError: Invalid sweep config: Parameter lr is a disallowed type with grid search. Grid search requires all parameters to be categorical, constant, int_uniform, or q_uniform. Specification of probabilities for categorical parameters is disallowed in grid search
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/cli/cli.py", line 97, in wrapper
+    return func(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/cli/cli.py", line 933, in sweep
+    sweep_id, warnings = api.upsert_sweep(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/internal.py", line 102, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/normalize.py", line 62, in wrapper
+    raise CommError(message, err).with_traceback(sys.exc_info()[2])
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/normalize.py", line 26, in wrapper
+    return func(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2220, in upsert_sweep
+    raise e
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2205, in upsert_sweep
+    response = self.gql(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 129, in __call__
+    retry_timedelta_triggered = check_retry_fn(e)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/util.py", line 974, in no_retry_4xx
+    raise UsageError(body["errors"][0]["message"])
+wandb.errors.CommError: Invalid sweep config: Parameter lr is a disallowed type with grid search. Grid search requires all parameters to be categorical, constant, int_uniform, or q_uniform. Specification of probabilities for categorical parameters is disallowed in grid search
+
+2023-11-30 21:53:23 ERROR 400 response executing GraphQL.
+2023-11-30 21:53:23 ERROR {"errors":[{"message":"Invalid sweep config: Parameter regularization is a disallowed type with grid search. Grid search requires all parameters to be categorical, constant, int_uniform, or q_uniform. Specification of probabilities for categorical parameters is disallowed in grid search","path":["upsertSweep"]}],"data":{"upsertSweep":null}}
+2023-11-30 21:53:23 ERROR Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 113, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 210, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/transport/requests.py", line 39, in execute
+    request.raise_for_status()
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://api.wandb.ai/graphql
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/normalize.py", line 26, in wrapper
+    return func(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2220, in upsert_sweep
+    raise e
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2205, in upsert_sweep
+    response = self.gql(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 129, in __call__
+    retry_timedelta_triggered = check_retry_fn(e)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/util.py", line 974, in no_retry_4xx
+    raise UsageError(body["errors"][0]["message"])
+wandb.errors.UsageError: Invalid sweep config: Parameter regularization is a disallowed type with grid search. Grid search requires all parameters to be categorical, constant, int_uniform, or q_uniform. Specification of probabilities for categorical parameters is disallowed in grid search
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/cli/cli.py", line 97, in wrapper
+    return func(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/cli/cli.py", line 933, in sweep
+    sweep_id, warnings = api.upsert_sweep(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/internal.py", line 102, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/normalize.py", line 62, in wrapper
+    raise CommError(message, err).with_traceback(sys.exc_info()[2])
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/normalize.py", line 26, in wrapper
+    return func(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2220, in upsert_sweep
+    raise e
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2205, in upsert_sweep
+    response = self.gql(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 129, in __call__
+    retry_timedelta_triggered = check_retry_fn(e)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/util.py", line 974, in no_retry_4xx
+    raise UsageError(body["errors"][0]["message"])
+wandb.errors.CommError: Invalid sweep config: Parameter regularization is a disallowed type with grid search. Grid search requires all parameters to be categorical, constant, int_uniform, or q_uniform. Specification of probabilities for categorical parameters is disallowed in grid search
+
+2023-11-30 21:57:32 ERROR 400 response executing GraphQL.
+2023-11-30 21:57:32 ERROR {"errors":[{"message":"Invalid sweep config: Parameter threshold is a disallowed type with grid search. Grid search requires all parameters to be categorical, constant, int_uniform, or q_uniform. Specification of probabilities for categorical parameters is disallowed in grid search","path":["upsertSweep"]}],"data":{"upsertSweep":null}}
+2023-11-30 21:57:32 ERROR Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 113, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 210, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/transport/requests.py", line 39, in execute
+    request.raise_for_status()
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://api.wandb.ai/graphql
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/normalize.py", line 26, in wrapper
+    return func(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2220, in upsert_sweep
+    raise e
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2205, in upsert_sweep
+    response = self.gql(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 129, in __call__
+    retry_timedelta_triggered = check_retry_fn(e)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/util.py", line 974, in no_retry_4xx
+    raise UsageError(body["errors"][0]["message"])
+wandb.errors.UsageError: Invalid sweep config: Parameter threshold is a disallowed type with grid search. Grid search requires all parameters to be categorical, constant, int_uniform, or q_uniform. Specification of probabilities for categorical parameters is disallowed in grid search
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/cli/cli.py", line 97, in wrapper
+    return func(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/cli/cli.py", line 933, in sweep
+    sweep_id, warnings = api.upsert_sweep(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/internal.py", line 102, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/normalize.py", line 62, in wrapper
+    raise CommError(message, err).with_traceback(sys.exc_info()[2])
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/apis/normalize.py", line 26, in wrapper
+    return func(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2220, in upsert_sweep
+    raise e
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 2205, in upsert_sweep
+    response = self.gql(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 129, in __call__
+    retry_timedelta_triggered = check_retry_fn(e)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/util.py", line 974, in no_retry_4xx
+    raise UsageError(body["errors"][0]["message"])
+wandb.errors.CommError: Invalid sweep config: Parameter threshold is a disallowed type with grid search. Grid search requires all parameters to be categorical, constant, int_uniform, or q_uniform. Specification of probabilities for categorical parameters is disallowed in grid search
+
+2023-11-30 21:58:21 ERROR Retry attempt failed:
+Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/urllib3/connectionpool.py", line 462, in _make_request
+    httplib_response = conn.getresponse()
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/http/client.py", line 1375, in getresponse
+    response.begin()
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/ssl.py", line 1307, in recv_into
+    return self.read(nbytes, buffer)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/ssl.py", line 1163, in read
+    return self._sslobj.read(len, buffer)
+TimeoutError: The read operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/urllib3/connectionpool.py", line 799, in urlopen
+    retries = retries.increment(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+    httplib_response = self._make_request(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/urllib3/connectionpool.py", line 469, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/urllib3/connectionpool.py", line 358, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 113, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 210, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/transport/requests.py", line 38, in execute
+    request = requests.post(self.url, **post_args)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/requests/adapters.py", line 532, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.wandb.ai', port=443): Read timed out. (read timeout=10)
+2023-11-30 22:02:07 INFO Running runs: []
+2023-11-30 22:02:07 INFO Agent received command: run
+2023-11-30 22:02:07 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 2
+	regularization: 0.0001
+2023-11-30 22:02:07 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=2 --regularization=0.0001
+2023-11-30 22:02:12 INFO Running runs: ['g9d5vmk3']
+2023-11-30 22:02:33 INFO Cleaning up finished run: g9d5vmk3
+2023-11-30 22:02:34 INFO Agent received command: run
+2023-11-30 22:02:34 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 2
+	regularization: 0.0005
+2023-11-30 22:02:34 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=2 --regularization=0.0005
+2023-11-30 22:02:39 INFO Running runs: ['uozz9xf7']
+2023-11-30 22:03:00 INFO Cleaning up finished run: uozz9xf7
+2023-11-30 22:03:00 INFO Agent received command: run
+2023-11-30 22:03:00 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 2
+	regularization: 0.001
+2023-11-30 22:03:00 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=2 --regularization=0.001
+2023-11-30 22:03:05 INFO Running runs: ['g6c0es1i']
+2023-11-30 22:03:26 INFO Cleaning up finished run: g6c0es1i
+2023-11-30 22:03:26 INFO Agent received command: run
+2023-11-30 22:03:26 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 2
+	regularization: 0.005
+2023-11-30 22:03:26 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=2 --regularization=0.005
+2023-11-30 22:03:31 INFO Running runs: ['urv9yruq']
+2023-11-30 22:03:52 INFO Cleaning up finished run: urv9yruq
+2023-11-30 22:03:53 INFO Agent received command: run
+2023-11-30 22:03:53 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 2
+	regularization: 0.01
+2023-11-30 22:03:53 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=2 --regularization=0.01
+2023-11-30 22:03:58 INFO Running runs: ['ja51qqdm']
+2023-11-30 22:04:19 INFO Cleaning up finished run: ja51qqdm
+2023-11-30 22:04:19 INFO Agent received command: run
+2023-11-30 22:04:19 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 2
+	regularization: 0.05
+2023-11-30 22:04:19 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=2 --regularization=0.05
+2023-11-30 22:04:24 INFO Running runs: ['bj18nzn5']
+2023-11-30 22:04:45 INFO Cleaning up finished run: bj18nzn5
+2023-11-30 22:04:45 INFO Agent received command: run
+2023-11-30 22:04:45 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 2
+	regularization: 0.1
+2023-11-30 22:04:45 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=2 --regularization=0.1
+2023-11-30 22:04:50 INFO Running runs: ['c6nrsyjq']
+2023-11-30 22:05:11 INFO Cleaning up finished run: c6nrsyjq
+2023-11-30 22:05:12 INFO Agent received command: run
+2023-11-30 22:05:12 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 4
+	regularization: 0.0001
+2023-11-30 22:05:12 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=4 --regularization=0.0001
+2023-11-30 22:05:17 INFO Running runs: ['1e25shz5']
+2023-11-30 22:05:37 INFO Cleaning up finished run: 1e25shz5
+2023-11-30 22:05:38 INFO Agent received command: run
+2023-11-30 22:05:38 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 4
+	regularization: 0.0005
+2023-11-30 22:05:38 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=4 --regularization=0.0005
+2023-11-30 22:05:43 INFO Running runs: ['bki1cx8s']
+2023-11-30 22:06:04 INFO Cleaning up finished run: bki1cx8s
+2023-11-30 22:06:04 INFO Agent received command: run
+2023-11-30 22:06:04 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 4
+	regularization: 0.001
+2023-11-30 22:06:04 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=4 --regularization=0.001
+2023-11-30 22:06:09 INFO Running runs: ['lks07knk']
+2023-11-30 22:06:30 INFO Cleaning up finished run: lks07knk
+2023-11-30 22:06:30 INFO Agent received command: run
+2023-11-30 22:06:30 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 4
+	regularization: 0.005
+2023-11-30 22:06:30 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=4 --regularization=0.005
+2023-11-30 22:06:35 INFO Running runs: ['n0wpqria']
+2023-11-30 22:06:56 INFO Cleaning up finished run: n0wpqria
+2023-11-30 22:06:57 INFO Agent received command: run
+2023-11-30 22:06:57 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 4
+	regularization: 0.01
+2023-11-30 22:06:57 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=4 --regularization=0.01
+2023-11-30 22:07:02 INFO Running runs: ['2jj5a368']
+2023-11-30 22:07:22 INFO Cleaning up finished run: 2jj5a368
+2023-11-30 22:07:23 INFO Agent received command: run
+2023-11-30 22:07:23 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 4
+	regularization: 0.05
+2023-11-30 22:07:23 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=4 --regularization=0.05
+2023-11-30 22:07:28 INFO Running runs: ['x26giobl']
+2023-11-30 22:07:49 INFO Cleaning up finished run: x26giobl
+2023-11-30 22:07:49 INFO Agent received command: run
+2023-11-30 22:07:49 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 4
+	regularization: 0.1
+2023-11-30 22:07:49 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=4 --regularization=0.1
+2023-11-30 22:07:54 INFO Running runs: ['iq22xwvc']
+2023-11-30 22:08:15 INFO Cleaning up finished run: iq22xwvc
+2023-11-30 22:08:16 INFO Agent received command: run
+2023-11-30 22:08:16 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 8
+	regularization: 0.0001
+2023-11-30 22:08:16 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=8 --regularization=0.0001
+2023-11-30 22:08:21 INFO Running runs: ['e9mij22g']
+2023-11-30 22:08:42 INFO Cleaning up finished run: e9mij22g
+2023-11-30 22:08:42 INFO Agent received command: run
+2023-11-30 22:08:42 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 8
+	regularization: 0.0005
+2023-11-30 22:08:42 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=8 --regularization=0.0005
+2023-11-30 22:08:47 INFO Running runs: ['6cf065j3']
+2023-11-30 22:09:08 INFO Cleaning up finished run: 6cf065j3
+2023-11-30 22:09:09 INFO Agent received command: run
+2023-11-30 22:09:09 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 8
+	regularization: 0.001
+2023-11-30 22:09:09 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=8 --regularization=0.001
+2023-11-30 22:09:14 INFO Running runs: ['niatlrp3']
+2023-11-30 22:09:35 INFO Cleaning up finished run: niatlrp3
+2023-11-30 22:09:35 INFO Agent received command: run
+2023-11-30 22:09:35 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 8
+	regularization: 0.005
+2023-11-30 22:09:35 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=8 --regularization=0.005
+2023-11-30 22:09:40 INFO Running runs: ['s1jbe4vb']
+2023-11-30 22:10:01 INFO Cleaning up finished run: s1jbe4vb
+2023-11-30 22:10:02 INFO Agent received command: run
+2023-11-30 22:10:02 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 8
+	regularization: 0.01
+2023-11-30 22:10:02 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=8 --regularization=0.01
+2023-11-30 22:10:07 INFO Running runs: ['atrhdw80']
+2023-11-30 22:10:28 INFO Cleaning up finished run: atrhdw80
+2023-11-30 22:10:28 INFO Agent received command: run
+2023-11-30 22:10:28 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 8
+	regularization: 0.05
+2023-11-30 22:10:28 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=8 --regularization=0.05
+2023-11-30 22:10:33 INFO Running runs: ['qj9vnrlp']
+2023-11-30 22:10:54 INFO Cleaning up finished run: qj9vnrlp
+2023-11-30 22:11:40 INFO Running runs: []
+2023-11-30 22:11:41 INFO Agent received command: run
+2023-11-30 22:11:41 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 8
+	regularization: 0.1
+2023-11-30 22:11:41 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=8 --regularization=0.1
+2023-11-30 22:11:46 INFO Running runs: ['j7vmjhqd']
+2023-11-30 22:12:07 INFO Cleaning up finished run: j7vmjhqd
+2023-11-30 22:12:07 INFO Agent received command: run
+2023-11-30 22:12:07 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 16
+	regularization: 0.0001
+2023-11-30 22:12:07 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=16 --regularization=0.0001
+2023-11-30 22:12:12 INFO Running runs: ['podqwuh7']
+2023-11-30 22:12:33 INFO Cleaning up finished run: podqwuh7
+2023-11-30 22:12:33 INFO Agent received command: run
+2023-11-30 22:12:33 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 16
+	regularization: 0.0005
+2023-11-30 22:12:33 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=16 --regularization=0.0005
+2023-11-30 22:12:38 INFO Running runs: ['zpngf2kg']
+2023-11-30 22:12:59 INFO Cleaning up finished run: zpngf2kg
+2023-11-30 22:13:00 INFO Agent received command: run
+2023-11-30 22:13:00 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 16
+	regularization: 0.001
+2023-11-30 22:13:00 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=16 --regularization=0.001
+2023-11-30 22:13:05 INFO Running runs: ['38hxz3vx']
+2023-11-30 22:13:26 INFO Cleaning up finished run: 38hxz3vx
+2023-11-30 22:13:26 INFO Agent received command: run
+2023-11-30 22:13:26 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 16
+	regularization: 0.005
+2023-11-30 22:13:26 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=16 --regularization=0.005
+2023-11-30 22:13:31 INFO Running runs: ['bvsadkkr']
+2023-11-30 22:13:52 INFO Cleaning up finished run: bvsadkkr
+2023-11-30 22:13:53 INFO Agent received command: run
+2023-11-30 22:13:53 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 16
+	regularization: 0.01
+2023-11-30 22:13:53 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=16 --regularization=0.01
+2023-11-30 22:13:58 INFO Running runs: ['b2353rlm']
+2023-11-30 22:14:19 INFO Cleaning up finished run: b2353rlm
+2023-11-30 22:14:19 INFO Agent received command: run
+2023-11-30 22:14:19 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 16
+	regularization: 0.05
+2023-11-30 22:14:19 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=16 --regularization=0.05
+2023-11-30 22:14:24 INFO Running runs: ['wdmlvwqx']
+2023-11-30 22:14:45 INFO Cleaning up finished run: wdmlvwqx
+2023-11-30 22:14:46 INFO Agent received command: run
+2023-11-30 22:14:46 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 16
+	regularization: 0.1
+2023-11-30 22:14:46 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=16 --regularization=0.1
+2023-11-30 22:14:51 INFO Running runs: ['8p0ji8i5']
+2023-11-30 22:15:12 INFO Cleaning up finished run: 8p0ji8i5
+2023-11-30 22:15:12 INFO Agent received command: run
+2023-11-30 22:15:12 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 32
+	regularization: 0.0001
+2023-11-30 22:15:12 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=32 --regularization=0.0001
+2023-11-30 22:15:17 INFO Running runs: ['ia62tr79']
+2023-11-30 22:15:38 INFO Cleaning up finished run: ia62tr79
+2023-11-30 22:15:39 INFO Agent received command: run
+2023-11-30 22:15:39 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 32
+	regularization: 0.0005
+2023-11-30 22:15:39 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=32 --regularization=0.0005
+2023-11-30 22:15:44 INFO Running runs: ['36butsge']
+2023-11-30 22:16:05 INFO Cleaning up finished run: 36butsge
+2023-11-30 22:16:05 INFO Agent received command: run
+2023-11-30 22:16:05 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 32
+	regularization: 0.001
+2023-11-30 22:16:05 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=32 --regularization=0.001
+2023-11-30 22:16:10 INFO Running runs: ['v3brg2jh']
+2023-11-30 22:16:31 INFO Cleaning up finished run: v3brg2jh
+2023-11-30 22:16:31 INFO Agent received command: run
+2023-11-30 22:16:31 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 32
+	regularization: 0.005
+2023-11-30 22:16:31 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=32 --regularization=0.005
+2023-11-30 22:16:36 INFO Running runs: ['f5ftv7ew']
+2023-11-30 22:16:58 INFO Cleaning up finished run: f5ftv7ew
+2023-11-30 22:16:58 INFO Agent received command: run
+2023-11-30 22:16:58 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 32
+	regularization: 0.01
+2023-11-30 22:16:58 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=32 --regularization=0.01
+2023-11-30 22:17:03 INFO Running runs: ['0zkpworw']
+2023-11-30 22:17:24 INFO Cleaning up finished run: 0zkpworw
+2023-11-30 22:17:24 INFO Agent received command: run
+2023-11-30 22:17:24 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 32
+	regularization: 0.05
+2023-11-30 22:17:24 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=32 --regularization=0.05
+2023-11-30 22:17:29 INFO Running runs: ['36r4t9y8']
+2023-11-30 22:17:50 INFO Cleaning up finished run: 36r4t9y8
+2023-11-30 22:17:51 INFO Agent received command: run
+2023-11-30 22:17:51 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 32
+	regularization: 0.1
+2023-11-30 22:17:51 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=32 --regularization=0.1
+2023-11-30 22:17:56 INFO Running runs: ['oy7wipfg']
+2023-11-30 22:18:17 INFO Cleaning up finished run: oy7wipfg
+2023-11-30 22:18:17 INFO Agent received command: run
+2023-11-30 22:18:17 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 64
+	regularization: 0.0001
+2023-11-30 22:18:17 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=64 --regularization=0.0001
+2023-11-30 22:18:22 INFO Running runs: ['8izdg1zn']
+2023-11-30 22:18:43 INFO Cleaning up finished run: 8izdg1zn
+2023-11-30 22:18:43 INFO Agent received command: run
+2023-11-30 22:18:43 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 64
+	regularization: 0.0005
+2023-11-30 22:18:43 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=64 --regularization=0.0005
+2023-11-30 22:18:48 INFO Running runs: ['l7ap5pbn']
+2023-11-30 22:19:09 INFO Cleaning up finished run: l7ap5pbn
+2023-11-30 22:19:10 INFO Agent received command: run
+2023-11-30 22:19:10 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 64
+	regularization: 0.001
+2023-11-30 22:19:10 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=64 --regularization=0.001
+2023-11-30 22:19:15 INFO Running runs: ['e12w8jvh']
+2023-11-30 22:19:35 INFO Cleaning up finished run: e12w8jvh
+2023-11-30 22:19:36 INFO Agent received command: run
+2023-11-30 22:19:36 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 64
+	regularization: 0.005
+2023-11-30 22:19:36 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=64 --regularization=0.005
+2023-11-30 22:19:41 INFO Running runs: ['dljk49j0']
+2023-11-30 22:20:02 INFO Cleaning up finished run: dljk49j0
+2023-11-30 22:20:02 INFO Agent received command: run
+2023-11-30 22:20:02 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 64
+	regularization: 0.01
+2023-11-30 22:20:02 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=64 --regularization=0.01
+2023-11-30 22:20:07 INFO Running runs: ['zyiyqg70']
+2023-11-30 22:20:28 INFO Cleaning up finished run: zyiyqg70
+2023-11-30 22:20:29 INFO Agent received command: run
+2023-11-30 22:20:29 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 64
+	regularization: 0.05
+2023-11-30 22:20:29 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=64 --regularization=0.05
+2023-11-30 22:20:34 INFO Running runs: ['86qr22z3']
+2023-11-30 22:20:55 INFO Cleaning up finished run: 86qr22z3
+2023-11-30 22:20:55 INFO Agent received command: run
+2023-11-30 22:20:55 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 64
+	regularization: 0.1
+2023-11-30 22:20:55 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=64 --regularization=0.1
+2023-11-30 22:21:01 INFO Running runs: ['4aexzap0']
+2023-11-30 22:21:21 INFO Cleaning up finished run: 4aexzap0
+2023-11-30 22:21:22 INFO Agent received command: run
+2023-11-30 22:21:22 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 128
+	regularization: 0.0001
+2023-11-30 22:21:22 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=128 --regularization=0.0001
+2023-11-30 22:21:27 INFO Running runs: ['n0tx6ha8']
+2023-11-30 22:21:48 INFO Cleaning up finished run: n0tx6ha8
+2023-11-30 22:21:48 INFO Agent received command: run
+2023-11-30 22:21:48 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 128
+	regularization: 0.0005
+2023-11-30 22:21:48 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=128 --regularization=0.0005
+2023-11-30 22:21:53 INFO Running runs: ['bqrm2gnc']
+2023-11-30 22:22:14 INFO Cleaning up finished run: bqrm2gnc
+2023-11-30 22:22:15 INFO Agent received command: run
+2023-11-30 22:22:15 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 128
+	regularization: 0.001
+2023-11-30 22:22:15 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=128 --regularization=0.001
+2023-11-30 22:22:20 INFO Running runs: ['c6fic876']
+2023-11-30 22:22:41 INFO Cleaning up finished run: c6fic876
+2023-11-30 22:22:41 INFO Agent received command: run
+2023-11-30 22:22:41 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 128
+	regularization: 0.005
+2023-11-30 22:22:41 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=128 --regularization=0.005
+2023-11-30 22:22:46 INFO Running runs: ['b0fhq2z0']
+2023-11-30 22:23:07 INFO Cleaning up finished run: b0fhq2z0
+2023-11-30 22:23:07 INFO Agent received command: run
+2023-11-30 22:23:07 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 128
+	regularization: 0.01
+2023-11-30 22:23:07 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=128 --regularization=0.01
+2023-11-30 22:23:12 INFO Running runs: ['qian429q']
+2023-11-30 22:23:33 INFO Cleaning up finished run: qian429q
+2023-11-30 22:23:34 INFO Agent received command: run
+2023-11-30 22:23:34 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 128
+	regularization: 0.05
+2023-11-30 22:23:34 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=128 --regularization=0.05
+2023-11-30 22:23:39 INFO Running runs: ['uln47oj5']
+2023-11-30 22:24:00 INFO Cleaning up finished run: uln47oj5
+2023-11-30 22:24:00 INFO Agent received command: run
+2023-11-30 22:24:00 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: polygonal
+	nc: 128
+	regularization: 0.1
+2023-11-30 22:24:00 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=polygonal --nc=128 --regularization=0.1
+2023-11-30 22:24:05 INFO Running runs: ['dtkla9ck']
+2023-11-30 22:24:26 INFO Cleaning up finished run: dtkla9ck
+2023-11-30 22:24:26 INFO Agent received command: run
+2023-11-30 22:24:26 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 2
+	regularization: 0.0001
+2023-11-30 22:24:26 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=2 --regularization=0.0001
+2023-11-30 22:24:31 INFO Running runs: ['0zp3cnpr']
+2023-11-30 22:24:52 INFO Cleaning up finished run: 0zp3cnpr
+2023-11-30 22:24:53 INFO Agent received command: run
+2023-11-30 22:24:53 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 2
+	regularization: 0.0005
+2023-11-30 22:24:53 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=2 --regularization=0.0005
+2023-11-30 22:24:58 INFO Running runs: ['pvt5e0c9']
+2023-11-30 22:25:19 INFO Cleaning up finished run: pvt5e0c9
+2023-11-30 22:25:19 INFO Agent received command: run
+2023-11-30 22:25:19 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 2
+	regularization: 0.001
+2023-11-30 22:25:19 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=2 --regularization=0.001
+2023-11-30 22:25:24 INFO Running runs: ['hld7wxs3']
+2023-11-30 22:25:45 INFO Cleaning up finished run: hld7wxs3
+2023-11-30 22:25:46 INFO Agent received command: run
+2023-11-30 22:25:46 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 2
+	regularization: 0.005
+2023-11-30 22:25:46 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=2 --regularization=0.005
+2023-11-30 22:25:51 INFO Running runs: ['dw8nx882']
+2023-11-30 22:26:12 INFO Cleaning up finished run: dw8nx882
+2023-11-30 22:26:12 INFO Agent received command: run
+2023-11-30 22:26:12 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 2
+	regularization: 0.01
+2023-11-30 22:26:12 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=2 --regularization=0.01
+2023-11-30 22:26:17 INFO Running runs: ['wtpclwvu']
+2023-11-30 22:26:38 INFO Cleaning up finished run: wtpclwvu
+2023-11-30 22:26:38 INFO Agent received command: run
+2023-11-30 22:26:38 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 2
+	regularization: 0.05
+2023-11-30 22:26:38 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=2 --regularization=0.05
+2023-11-30 22:26:43 INFO Running runs: ['ngbx1siv']
+2023-11-30 22:27:04 INFO Cleaning up finished run: ngbx1siv
+2023-11-30 22:27:05 INFO Agent received command: run
+2023-11-30 22:27:05 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 2
+	regularization: 0.1
+2023-11-30 22:27:05 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=2 --regularization=0.1
+2023-11-30 22:27:10 INFO Running runs: ['3sr50avg']
+2023-11-30 22:27:31 INFO Cleaning up finished run: 3sr50avg
+2023-11-30 22:27:31 INFO Agent received command: run
+2023-11-30 22:27:31 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 4
+	regularization: 0.0001
+2023-11-30 22:27:31 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=4 --regularization=0.0001
+2023-11-30 22:27:36 INFO Running runs: ['xl500vqa']
+2023-11-30 22:28:13 INFO Cleaning up finished run: xl500vqa
+2023-11-30 22:28:13 INFO Agent received command: run
+2023-11-30 22:28:13 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 4
+	regularization: 0.0005
+2023-11-30 22:28:13 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=4 --regularization=0.0005
+2023-11-30 22:28:18 INFO Running runs: ['u2114fyc']
+2023-11-30 22:28:39 INFO Cleaning up finished run: u2114fyc
+2023-11-30 22:28:40 INFO Agent received command: run
+2023-11-30 22:28:40 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 4
+	regularization: 0.001
+2023-11-30 22:28:40 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=4 --regularization=0.001
+2023-11-30 22:28:45 INFO Running runs: ['97z5ic6w']
+2023-11-30 22:29:06 INFO Cleaning up finished run: 97z5ic6w
+2023-11-30 22:29:06 INFO Agent received command: run
+2023-11-30 22:29:06 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 4
+	regularization: 0.005
+2023-11-30 22:29:06 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=4 --regularization=0.005
+2023-11-30 22:29:11 INFO Running runs: ['oeyy3tzb']
+2023-11-30 22:29:32 INFO Cleaning up finished run: oeyy3tzb
+2023-11-30 22:29:32 INFO Agent received command: run
+2023-11-30 22:29:32 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 4
+	regularization: 0.01
+2023-11-30 22:29:32 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=4 --regularization=0.01
+2023-11-30 22:29:37 INFO Running runs: ['efj1j56f']
+2023-11-30 22:30:14 INFO Cleaning up finished run: efj1j56f
+2023-11-30 22:30:14 INFO Agent received command: run
+2023-11-30 22:30:14 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 4
+	regularization: 0.05
+2023-11-30 22:30:14 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=4 --regularization=0.05
+2023-11-30 22:30:19 INFO Running runs: ['a4t8hebr']
+2023-11-30 22:30:56 INFO Cleaning up finished run: a4t8hebr
+2023-11-30 22:30:56 INFO Agent received command: run
+2023-11-30 22:30:56 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 4
+	regularization: 0.1
+2023-11-30 22:30:56 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=4 --regularization=0.1
+2023-11-30 22:31:01 INFO Running runs: ['hen8eydv']
+2023-11-30 22:31:22 INFO Cleaning up finished run: hen8eydv
+2023-11-30 22:31:23 INFO Agent received command: run
+2023-11-30 22:31:23 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 8
+	regularization: 0.0001
+2023-11-30 22:31:23 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=8 --regularization=0.0001
+2023-11-30 22:31:28 INFO Running runs: ['tab63nr1']
+2023-11-30 22:31:49 INFO Cleaning up finished run: tab63nr1
+2023-11-30 22:31:49 INFO Agent received command: run
+2023-11-30 22:31:49 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 8
+	regularization: 0.0005
+2023-11-30 22:31:49 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=8 --regularization=0.0005
+2023-11-30 22:31:54 INFO Running runs: ['uompe5w9']
+2023-11-30 22:32:20 INFO Cleaning up finished run: uompe5w9
+2023-11-30 22:32:20 INFO Agent received command: run
+2023-11-30 22:32:20 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 8
+	regularization: 0.001
+2023-11-30 22:32:20 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=8 --regularization=0.001
+2023-11-30 22:32:25 INFO Running runs: ['9p4be11w']
+2023-11-30 22:32:46 INFO Cleaning up finished run: 9p4be11w
+2023-11-30 22:32:47 INFO Agent received command: run
+2023-11-30 22:32:47 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 8
+	regularization: 0.005
+2023-11-30 22:32:47 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=8 --regularization=0.005
+2023-11-30 22:32:52 INFO Running runs: ['bj6en4tz']
+2023-11-30 22:33:13 INFO Cleaning up finished run: bj6en4tz
+2023-11-30 22:33:13 INFO Agent received command: run
+2023-11-30 22:33:13 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 8
+	regularization: 0.01
+2023-11-30 22:33:13 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=8 --regularization=0.01
+2023-11-30 22:33:18 INFO Running runs: ['ncd0mabh']
+2023-11-30 22:33:39 INFO Cleaning up finished run: ncd0mabh
+2023-11-30 22:33:40 INFO Agent received command: run
+2023-11-30 22:33:40 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 8
+	regularization: 0.05
+2023-11-30 22:33:40 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=8 --regularization=0.05
+2023-11-30 22:33:45 INFO Running runs: ['te5p7uu9']
+2023-11-30 22:34:06 INFO Cleaning up finished run: te5p7uu9
+2023-11-30 22:34:06 INFO Agent received command: run
+2023-11-30 22:34:06 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 8
+	regularization: 0.1
+2023-11-30 22:34:06 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=8 --regularization=0.1
+2023-11-30 22:34:11 INFO Running runs: ['cx34hk03']
+2023-11-30 22:34:32 INFO Cleaning up finished run: cx34hk03
+2023-11-30 22:34:33 INFO Agent received command: run
+2023-11-30 22:34:33 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 16
+	regularization: 0.0001
+2023-11-30 22:34:33 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=16 --regularization=0.0001
+2023-11-30 22:34:38 INFO Running runs: ['misfowf2']
+2023-11-30 22:34:59 INFO Cleaning up finished run: misfowf2
+2023-11-30 22:34:59 INFO Agent received command: run
+2023-11-30 22:34:59 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 16
+	regularization: 0.0005
+2023-11-30 22:34:59 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=16 --regularization=0.0005
+2023-11-30 22:35:04 INFO Running runs: ['384q1kl4']
+2023-11-30 22:35:25 INFO Cleaning up finished run: 384q1kl4
+2023-11-30 22:35:26 INFO Agent received command: run
+2023-11-30 22:35:26 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 16
+	regularization: 0.001
+2023-11-30 22:35:26 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=16 --regularization=0.001
+2023-11-30 22:35:31 INFO Running runs: ['w5dnn1az']
+2023-11-30 22:35:51 INFO Cleaning up finished run: w5dnn1az
+2023-11-30 22:35:52 INFO Agent received command: run
+2023-11-30 22:35:52 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 16
+	regularization: 0.005
+2023-11-30 22:35:52 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=16 --regularization=0.005
+2023-11-30 22:35:57 INFO Running runs: ['35hg55wv']
+2023-11-30 22:36:18 INFO Cleaning up finished run: 35hg55wv
+2023-11-30 22:36:18 INFO Agent received command: run
+2023-11-30 22:36:18 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 16
+	regularization: 0.01
+2023-11-30 22:36:18 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=16 --regularization=0.01
+2023-11-30 22:36:23 INFO Running runs: ['19qxj96l']
+2023-11-30 22:36:44 INFO Cleaning up finished run: 19qxj96l
+2023-11-30 22:36:44 INFO Agent received command: run
+2023-11-30 22:36:44 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 16
+	regularization: 0.05
+2023-11-30 22:36:44 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=16 --regularization=0.05
+2023-11-30 22:36:49 INFO Running runs: ['dr1zqtg2']
+2023-11-30 22:37:10 INFO Cleaning up finished run: dr1zqtg2
+2023-11-30 22:37:11 INFO Agent received command: run
+2023-11-30 22:37:11 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 16
+	regularization: 0.1
+2023-11-30 22:37:11 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=16 --regularization=0.1
+2023-11-30 22:37:16 INFO Running runs: ['g39t2kj8']
+2023-11-30 22:37:37 INFO Cleaning up finished run: g39t2kj8
+2023-11-30 22:37:37 INFO Agent received command: run
+2023-11-30 22:37:37 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 32
+	regularization: 0.0001
+2023-11-30 22:37:37 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=32 --regularization=0.0001
+2023-11-30 22:37:42 INFO Running runs: ['5hln5u7c']
+2023-11-30 22:38:03 INFO Cleaning up finished run: 5hln5u7c
+2023-11-30 22:38:03 INFO Agent received command: run
+2023-11-30 22:38:03 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 32
+	regularization: 0.0005
+2023-11-30 22:38:03 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=32 --regularization=0.0005
+2023-11-30 22:38:08 INFO Running runs: ['iagp6svh']
+2023-11-30 22:38:29 INFO Cleaning up finished run: iagp6svh
+2023-11-30 22:38:30 INFO Agent received command: run
+2023-11-30 22:38:30 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 32
+	regularization: 0.001
+2023-11-30 22:38:30 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=32 --regularization=0.001
+2023-11-30 22:38:35 INFO Running runs: ['1jbc8tm4']
+2023-11-30 22:38:55 INFO Cleaning up finished run: 1jbc8tm4
+2023-11-30 22:38:56 INFO Agent received command: run
+2023-11-30 22:38:56 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 32
+	regularization: 0.005
+2023-11-30 22:38:56 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=32 --regularization=0.005
+2023-11-30 22:39:01 INFO Running runs: ['e6t1lls8']
+2023-11-30 22:39:22 INFO Cleaning up finished run: e6t1lls8
+2023-11-30 22:39:23 INFO Agent received command: run
+2023-11-30 22:39:23 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 32
+	regularization: 0.01
+2023-11-30 22:39:23 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=32 --regularization=0.01
+2023-11-30 22:39:28 INFO Running runs: ['zxbw8t24']
+2023-11-30 22:39:49 INFO Cleaning up finished run: zxbw8t24
+2023-11-30 22:39:49 INFO Agent received command: run
+2023-11-30 22:39:49 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 32
+	regularization: 0.05
+2023-11-30 22:39:49 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=32 --regularization=0.05
+2023-11-30 22:39:54 INFO Running runs: ['n4box7ra']
+2023-11-30 22:40:15 INFO Cleaning up finished run: n4box7ra
+2023-11-30 22:40:16 INFO Agent received command: run
+2023-11-30 22:40:16 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 32
+	regularization: 0.1
+2023-11-30 22:40:16 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=32 --regularization=0.1
+2023-11-30 22:40:21 INFO Running runs: ['aa97jk0i']
+2023-11-30 22:40:42 INFO Cleaning up finished run: aa97jk0i
+2023-11-30 22:40:43 INFO Agent received command: run
+2023-11-30 22:40:43 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 64
+	regularization: 0.0001
+2023-11-30 22:40:43 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=64 --regularization=0.0001
+2023-11-30 22:40:48 INFO Running runs: ['ou7q7bm2']
+2023-11-30 22:41:09 INFO Cleaning up finished run: ou7q7bm2
+2023-11-30 22:41:09 INFO Agent received command: run
+2023-11-30 22:41:09 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 64
+	regularization: 0.0005
+2023-11-30 22:41:09 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=64 --regularization=0.0005
+2023-11-30 22:41:14 INFO Running runs: ['2fycpm07']
+2023-11-30 22:41:35 INFO Cleaning up finished run: 2fycpm07
+2023-11-30 22:41:35 INFO Agent received command: run
+2023-11-30 22:41:35 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 64
+	regularization: 0.001
+2023-11-30 22:41:35 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=64 --regularization=0.001
+2023-11-30 22:41:41 INFO Running runs: ['90boy9l0']
+2023-11-30 22:42:02 INFO Cleaning up finished run: 90boy9l0
+2023-11-30 22:42:02 INFO Agent received command: run
+2023-11-30 22:42:02 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 64
+	regularization: 0.005
+2023-11-30 22:42:02 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=64 --regularization=0.005
+2023-11-30 22:42:07 INFO Running runs: ['a35yopdw']
+2023-11-30 22:42:28 INFO Cleaning up finished run: a35yopdw
+2023-11-30 22:42:29 INFO Agent received command: run
+2023-11-30 22:42:29 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 64
+	regularization: 0.01
+2023-11-30 22:42:29 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=64 --regularization=0.01
+2023-11-30 22:42:34 INFO Running runs: ['l8hasc20']
+2023-11-30 22:42:55 INFO Cleaning up finished run: l8hasc20
+2023-11-30 22:42:55 INFO Agent received command: run
+2023-11-30 22:42:55 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 64
+	regularization: 0.05
+2023-11-30 22:42:55 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=64 --regularization=0.05
+2023-11-30 22:43:00 INFO Running runs: ['gmo6qy8z']
+2023-11-30 22:43:21 INFO Cleaning up finished run: gmo6qy8z
+2023-11-30 22:43:21 INFO Agent received command: run
+2023-11-30 22:43:21 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 64
+	regularization: 0.1
+2023-11-30 22:43:21 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=64 --regularization=0.1
+2023-11-30 22:43:26 INFO Running runs: ['3j0orkm6']
+2023-11-30 22:43:47 INFO Cleaning up finished run: 3j0orkm6
+2023-11-30 22:43:48 INFO Agent received command: run
+2023-11-30 22:43:48 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 128
+	regularization: 0.0001
+2023-11-30 22:43:48 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=128 --regularization=0.0001
+2023-11-30 22:43:53 INFO Running runs: ['otcndhwa']
+2023-11-30 22:44:14 INFO Cleaning up finished run: otcndhwa
+2023-11-30 22:44:14 INFO Agent received command: run
+2023-11-30 22:44:14 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 128
+	regularization: 0.0005
+2023-11-30 22:44:14 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=128 --regularization=0.0005
+2023-11-30 22:44:19 INFO Running runs: ['3rbdy1ao']
+2023-11-30 22:44:40 INFO Cleaning up finished run: 3rbdy1ao
+2023-11-30 22:44:41 INFO Agent received command: run
+2023-11-30 22:44:41 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 128
+	regularization: 0.001
+2023-11-30 22:44:41 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=128 --regularization=0.001
+2023-11-30 22:44:46 INFO Running runs: ['rwmrl8p4']
+2023-11-30 22:45:12 INFO Cleaning up finished run: rwmrl8p4
+2023-11-30 22:45:13 INFO Agent received command: run
+2023-11-30 22:45:13 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 128
+	regularization: 0.005
+2023-11-30 22:45:13 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=128 --regularization=0.005
+2023-11-30 22:45:18 INFO Running runs: ['38e1r164']
+2023-11-30 22:45:38 INFO Cleaning up finished run: 38e1r164
+2023-11-30 22:45:39 INFO Agent received command: run
+2023-11-30 22:45:39 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 128
+	regularization: 0.01
+2023-11-30 22:45:39 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=128 --regularization=0.01
+2023-11-30 22:45:44 INFO Running runs: ['anqehybp']
+2023-11-30 22:46:05 INFO Cleaning up finished run: anqehybp
+2023-11-30 22:46:05 INFO Agent received command: run
+2023-11-30 22:46:05 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 128
+	regularization: 0.05
+2023-11-30 22:46:05 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=128 --regularization=0.05
+2023-11-30 22:46:10 INFO Running runs: ['xqk84oby']
+2023-11-30 22:46:31 INFO Cleaning up finished run: xqk84oby
+2023-11-30 22:46:31 INFO Agent received command: run
+2023-11-30 22:46:31 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0001
+	method: bezier
+	nc: 128
+	regularization: 0.1
+2023-11-30 22:46:31 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0001 --method=bezier --nc=128 --regularization=0.1
+2023-11-30 22:46:36 INFO Running runs: ['8t707qy1']
+2023-11-30 22:46:57 INFO Cleaning up finished run: 8t707qy1
+2023-11-30 22:46:59 INFO Agent received command: run
+2023-11-30 22:46:59 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 2
+	regularization: 0.0001
+2023-11-30 22:46:59 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=2 --regularization=0.0001
+2023-11-30 22:47:04 INFO Running runs: ['848msrsw']
+2023-11-30 22:47:25 INFO Cleaning up finished run: 848msrsw
+2023-11-30 22:47:25 INFO Agent received command: run
+2023-11-30 22:47:25 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 2
+	regularization: 0.0005
+2023-11-30 22:47:25 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=2 --regularization=0.0005
+2023-11-30 22:47:30 INFO Running runs: ['nitakvl9']
+2023-11-30 22:47:51 INFO Cleaning up finished run: nitakvl9
+2023-11-30 22:47:52 INFO Agent received command: run
+2023-11-30 22:47:52 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 2
+	regularization: 0.001
+2023-11-30 22:47:52 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=2 --regularization=0.001
+2023-11-30 22:47:57 INFO Running runs: ['y6om7rvl']
+2023-11-30 22:48:17 INFO Cleaning up finished run: y6om7rvl
+2023-11-30 22:48:18 INFO Agent received command: run
+2023-11-30 22:48:18 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 2
+	regularization: 0.005
+2023-11-30 22:48:18 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=2 --regularization=0.005
+2023-11-30 22:48:23 INFO Running runs: ['388rk52w']
+2023-11-30 22:48:44 INFO Cleaning up finished run: 388rk52w
+2023-11-30 22:48:44 INFO Agent received command: run
+2023-11-30 22:48:44 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 2
+	regularization: 0.01
+2023-11-30 22:48:44 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=2 --regularization=0.01
+2023-11-30 22:48:49 INFO Running runs: ['0j4kzz4k']
+2023-11-30 22:49:10 INFO Cleaning up finished run: 0j4kzz4k
+2023-11-30 22:49:11 INFO Agent received command: run
+2023-11-30 22:49:11 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 2
+	regularization: 0.05
+2023-11-30 22:49:11 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=2 --regularization=0.05
+2023-11-30 22:49:16 INFO Running runs: ['ustmjtrq']
+2023-11-30 22:49:36 INFO Cleaning up finished run: ustmjtrq
+2023-11-30 22:49:37 INFO Agent received command: run
+2023-11-30 22:49:37 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 2
+	regularization: 0.1
+2023-11-30 22:49:37 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=2 --regularization=0.1
+2023-11-30 22:49:42 INFO Running runs: ['m00wvp0q']
+2023-11-30 22:50:03 INFO Cleaning up finished run: m00wvp0q
+2023-11-30 22:50:03 INFO Agent received command: run
+2023-11-30 22:50:03 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 4
+	regularization: 0.0001
+2023-11-30 22:50:03 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=4 --regularization=0.0001
+2023-11-30 22:50:08 INFO Running runs: ['1tunuyre']
+2023-11-30 22:50:29 INFO Cleaning up finished run: 1tunuyre
+2023-11-30 22:50:30 INFO Agent received command: run
+2023-11-30 22:50:30 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 4
+	regularization: 0.0005
+2023-11-30 22:50:30 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=4 --regularization=0.0005
+2023-11-30 22:50:35 INFO Running runs: ['arly7rxx']
+2023-11-30 22:50:56 INFO Cleaning up finished run: arly7rxx
+2023-11-30 22:50:57 INFO Agent received command: run
+2023-11-30 22:50:57 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 4
+	regularization: 0.001
+2023-11-30 22:50:57 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=4 --regularization=0.001
+2023-11-30 22:51:02 INFO Running runs: ['e1jq02ej']
+2023-11-30 22:51:33 INFO Cleaning up finished run: e1jq02ej
+2023-11-30 22:51:34 INFO Agent received command: run
+2023-11-30 22:51:34 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 4
+	regularization: 0.005
+2023-11-30 22:51:34 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=4 --regularization=0.005
+2023-11-30 22:51:39 INFO Running runs: ['bi532dco']
+2023-11-30 22:52:16 INFO Cleaning up finished run: bi532dco
+2023-11-30 22:52:18 INFO Agent received command: run
+2023-11-30 22:52:18 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 4
+	regularization: 0.01
+2023-11-30 22:52:18 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=4 --regularization=0.01
+2023-11-30 22:52:23 INFO Running runs: ['yc2drl23']
+2023-11-30 22:52:47 INFO Cleaning up finished run: yc2drl23
+2023-11-30 22:52:48 INFO Agent received command: run
+2023-11-30 22:52:48 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 4
+	regularization: 0.05
+2023-11-30 22:52:48 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=4 --regularization=0.05
+2023-11-30 22:52:53 INFO Running runs: ['6prdbt4d']
+2023-11-30 22:53:14 INFO Cleaning up finished run: 6prdbt4d
+2023-11-30 22:53:15 INFO Agent received command: run
+2023-11-30 22:53:15 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 4
+	regularization: 0.1
+2023-11-30 22:53:15 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=4 --regularization=0.1
+2023-11-30 22:53:20 INFO Running runs: ['glshqknm']
+2023-11-30 22:53:41 INFO Cleaning up finished run: glshqknm
+2023-11-30 22:53:41 INFO Agent received command: run
+2023-11-30 22:53:41 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 8
+	regularization: 0.0001
+2023-11-30 22:53:41 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=8 --regularization=0.0001
+2023-11-30 22:53:46 INFO Running runs: ['03iqxivu']
+2023-11-30 22:54:07 INFO Cleaning up finished run: 03iqxivu
+2023-11-30 22:54:08 INFO Agent received command: run
+2023-11-30 22:54:08 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 8
+	regularization: 0.0005
+2023-11-30 22:54:08 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=8 --regularization=0.0005
+2023-11-30 22:54:13 INFO Running runs: ['71900av6']
+2023-11-30 22:54:34 INFO Cleaning up finished run: 71900av6
+2023-11-30 22:54:34 INFO Agent received command: run
+2023-11-30 22:54:34 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 8
+	regularization: 0.001
+2023-11-30 22:54:34 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=8 --regularization=0.001
+2023-11-30 22:54:39 INFO Running runs: ['i75oq720']
+2023-11-30 22:55:00 INFO Cleaning up finished run: i75oq720
+2023-11-30 22:55:00 INFO Agent received command: run
+2023-11-30 22:55:00 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 8
+	regularization: 0.005
+2023-11-30 22:55:00 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=8 --regularization=0.005
+2023-11-30 22:55:05 INFO Running runs: ['zk0kfc8q']
+2023-11-30 22:55:26 INFO Cleaning up finished run: zk0kfc8q
+2023-11-30 22:55:27 INFO Agent received command: run
+2023-11-30 22:55:27 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 8
+	regularization: 0.01
+2023-11-30 22:55:27 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=8 --regularization=0.01
+2023-11-30 22:55:32 INFO Running runs: ['9mdg6vee']
+2023-11-30 22:55:53 INFO Cleaning up finished run: 9mdg6vee
+2023-11-30 22:55:53 INFO Agent received command: run
+2023-11-30 22:55:53 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 8
+	regularization: 0.05
+2023-11-30 22:55:53 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=8 --regularization=0.05
+2023-11-30 22:55:58 INFO Running runs: ['6dt7v6cb']
+2023-11-30 22:56:19 INFO Cleaning up finished run: 6dt7v6cb
+2023-11-30 22:56:20 INFO Agent received command: run
+2023-11-30 22:56:20 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 8
+	regularization: 0.1
+2023-11-30 22:56:20 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=8 --regularization=0.1
+2023-11-30 22:56:25 INFO Running runs: ['1kfbwxcd']
+2023-11-30 22:56:46 INFO Cleaning up finished run: 1kfbwxcd
+2023-11-30 22:56:46 INFO Agent received command: run
+2023-11-30 22:56:46 INFO Agent starting run with config:
+	epochs: 100
+	geometry: euclidean
+	lr: 0.0005
+	method: polygonal
+	nc: 16
+	regularization: 0.0001
+2023-11-30 22:56:46 INFO About to run command: /usr/bin/env python unraveled_frank_wolfe_3_spikes.py --epochs=100 --geometry=euclidean --lr=0.0005 --method=polygonal --nc=16 --regularization=0.0001
+2023-11-30 22:56:51 INFO Running runs: ['tzf93ojz']
+2023-11-30 22:57:12 INFO Cleaning up finished run: tzf93ojz

@@ -1,0 +1,122 @@
+2024-06-10 14:07:22,768 INFO    StreamThr :499819 [internal.py:wandb_internal():88] W&B internal server running at pid: 499819, started at: 2024-06-10 14:07:22.768082
+2024-06-10 14:07:22,770 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: status
+2024-06-10 14:07:22,770 DEBUG   SenderThread:499819 [sender.py:send_request():317] send_request: status
+2024-06-10 14:07:22,771 INFO    WriterThread:499819 [datastore.py:open_for_write():75] open: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/offline-run-20240610_140722-37wmf8zw/run-37wmf8zw.wandb
+2024-06-10 14:07:22,777 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: run_start
+2024-06-10 14:07:22,779 DEBUG   HandlerThread:499819 [system_info.py:__init__():31] System info init
+2024-06-10 14:07:22,779 DEBUG   HandlerThread:499819 [system_info.py:__init__():46] System info init done
+2024-06-10 14:07:22,779 INFO    HandlerThread:499819 [system_monitor.py:start():150] Starting system monitor
+2024-06-10 14:07:22,779 INFO    SystemMonitor:499819 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2024-06-10 14:07:22,779 INFO    HandlerThread:499819 [system_monitor.py:probe():168] Collecting system info
+2024-06-10 14:07:22,780 INFO    SystemMonitor:499819 [interfaces.py:start():168] Started cpu
+2024-06-10 14:07:22,780 INFO    SystemMonitor:499819 [interfaces.py:start():168] Started disk
+2024-06-10 14:07:22,780 INFO    SystemMonitor:499819 [interfaces.py:start():168] Started gpu
+2024-06-10 14:07:22,781 INFO    SystemMonitor:499819 [interfaces.py:start():168] Started memory
+2024-06-10 14:07:22,781 INFO    SystemMonitor:499819 [interfaces.py:start():168] Started network
+2024-06-10 14:07:22,803 DEBUG   HandlerThread:499819 [system_info.py:probe():195] Probing system
+2024-06-10 14:07:22,804 DEBUG   HandlerThread:499819 [system_info.py:_probe_git():180] Probing git
+2024-06-10 14:07:22,807 DEBUG   HandlerThread:499819 [system_info.py:_probe_git():188] Probing git done
+2024-06-10 14:07:22,808 DEBUG   HandlerThread:499819 [system_info.py:probe():241] Probing system done
+2024-06-10 14:07:22,808 DEBUG   HandlerThread:499819 [system_monitor.py:probe():177] {'os': 'Linux-5.15.0-107-generic-x86_64-with-glibc2.31', 'python': '3.10.13', 'heartbeatAt': '2024-06-10T12:07:22.803827', 'startedAt': '2024-06-10T12:07:22.761945', 'docker': None, 'cuda': None, 'args': None, 'state': 'running', 'program': '/home/tbertrand/Bureau/dynamic-off-the-grid/unraveled_frank_wolfe_3_spikes.py', 'codePath': 'unraveled_frank_wolfe_3_spikes.py', 'git': {'remote': 'https://gitlab.inria.fr/blaville/dynamic-off-the-grid.git', 'commit': '6d00ccd3ccc89bdd18e75630ce6e44cff5ffccb4'}, 'email': 'tbertrand@ceremade.dauphine.fr', 'root': '/home/tbertrand/Bureau/dynamic-off-the-grid', 'host': 'P7550BERTRAND', 'username': 'tbertrand', 'executable': '/home/tbertrand/anaconda3/envs/fmicnn-condav2/bin/python', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 2.4668749999999995, 'min': 800.0, 'max': 5300.0}, 'cpu_freq_per_core': [{'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 3.47, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}], 'disk': {'total': 1831.3967514038086, 'used': 681.8490905761719}, 'gpu': 'Quadro T2000', 'gpu_count': 1, 'gpu_devices': [{'name': 'Quadro T2000', 'memory_total': 4066574336}], 'memory': {'total': 31.04769515991211}}
+2024-06-10 14:07:22,808 INFO    HandlerThread:499819 [system_monitor.py:probe():178] Finished collecting system info
+2024-06-10 14:07:22,808 INFO    HandlerThread:499819 [system_monitor.py:probe():181] Publishing system info
+2024-06-10 14:07:22,808 DEBUG   HandlerThread:499819 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2024-06-10 14:07:22,808 DEBUG   HandlerThread:499819 [system_info.py:_save_pip():67] Saving pip packages done
+2024-06-10 14:07:22,808 DEBUG   HandlerThread:499819 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2024-06-10 14:07:29,351 DEBUG   HandlerThread:499819 [system_info.py:_save_conda():86] Saving conda packages done
+2024-06-10 14:07:29,352 INFO    HandlerThread:499819 [system_monitor.py:probe():183] Finished publishing system info
+2024-06-10 14:07:35,243 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:07:35,243 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:07:35,243 INFO    HandlerThread:499819 [system_monitor.py:finish():160] Stopping system monitor
+2024-06-10 14:07:35,243 DEBUG   SystemMonitor:499819 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2024-06-10 14:07:35,243 DEBUG   SystemMonitor:499819 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2024-06-10 14:07:35,243 INFO    HandlerThread:499819 [interfaces.py:finish():173] Joined cpu
+2024-06-10 14:07:35,244 DEBUG   SystemMonitor:499819 [system_monitor.py:_start():141] Publishing last batch of metrics
+2024-06-10 14:07:35,244 INFO    HandlerThread:499819 [interfaces.py:finish():173] Joined disk
+2024-06-10 14:07:35,284 INFO    HandlerThread:499819 [interfaces.py:finish():173] Joined gpu
+2024-06-10 14:07:35,284 INFO    HandlerThread:499819 [interfaces.py:finish():173] Joined memory
+2024-06-10 14:07:35,284 INFO    HandlerThread:499819 [interfaces.py:finish():173] Joined network
+2024-06-10 14:07:46,290 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:07:46,291 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:07:46,295 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:07:46,295 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:08:19,685 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:08:19,685 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:08:19,689 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:08:19,689 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:08:33,425 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:08:33,425 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:08:33,430 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:08:33,430 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:08:33,852 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:08:33,852 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:08:33,858 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:08:33,858 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:08:45,014 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:08:45,014 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:08:45,019 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:08:45,019 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:08:58,118 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:08:58,118 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:08:58,123 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:08:58,123 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:08:58,466 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:08:58,467 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:08:58,473 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:08:58,473 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:09:00,772 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:09:00,772 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:09:00,777 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:09:00,777 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:09:01,146 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:09:01,146 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:09:01,150 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:09:01,150 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:09:02,615 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:09:02,615 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:09:02,619 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:09:02,619 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:09:16,160 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:09:16,160 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:09:16,164 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:09:16,164 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:09:23,418 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:09:23,418 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:09:23,423 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:09:23,423 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:09:24,052 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:09:24,052 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:09:24,057 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:09:24,057 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:09:33,309 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:09:33,309 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:09:33,314 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:09:33,314 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:09:41,846 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:09:41,846 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:09:41,850 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:09:41,850 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:09:42,175 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:09:42,175 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:09:42,180 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:09:42,180 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:09:42,438 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:09:42,438 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:09:42,442 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:09:42,442 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:09:51,049 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:09:51,049 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:09:51,054 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:09:51,054 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:09:51,926 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:09:51,926 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:09:51,931 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:09:51,931 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:09:52,543 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:09:52,543 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:09:52,547 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:09:52,547 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-10 14:09:56,025 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: resume
+2024-06-10 14:09:56,025 INFO    HandlerThread:499819 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-10 14:09:56,031 DEBUG   HandlerThread:499819 [handler.py:handle_request():139] handle_request: pause
+2024-06-10 14:09:56,031 INFO    HandlerThread:499819 [handler.py:handle_request_pause():696] stopping system metrics thread or process

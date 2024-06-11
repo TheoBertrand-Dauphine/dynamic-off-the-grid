@@ -1,0 +1,187 @@
+2023-11-30 22:33:16,782 INFO    StreamThr :87704 [internal.py:wandb_internal():88] W&B internal server running at pid: 87704, started at: 2023-11-30 22:33:16.782473
+2023-11-30 22:33:16,784 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: status
+2023-11-30 22:33:16,784 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: status
+2023-11-30 22:33:16,785 INFO    WriterThread:87704 [datastore.py:open_for_write():75] open: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/run-ncd0mabh.wandb
+2023-11-30 22:33:16,785 DEBUG   SenderThread:87704 [sender.py:send():303] send: header
+2023-11-30 22:33:16,788 DEBUG   SenderThread:87704 [sender.py:send():303] send: run
+2023-11-30 22:33:17,268 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: check_version
+2023-11-30 22:33:17,268 INFO    SenderThread:87704 [dir_watcher.py:__init__():216] watching files in: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files
+2023-11-30 22:33:17,269 INFO    SenderThread:87704 [sender.py:_start_run_threads():928] run started: ncd0mabh with start time 1701379996.782732
+2023-11-30 22:33:17,269 DEBUG   SenderThread:87704 [sender.py:send():303] send: summary
+2023-11-30 22:33:17,269 INFO    SenderThread:87704 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-11-30 22:33:17,269 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: check_version
+2023-11-30 22:33:17,493 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: run_start
+2023-11-30 22:33:17,495 DEBUG   HandlerThread:87704 [system_info.py:__init__():31] System info init
+2023-11-30 22:33:17,495 DEBUG   HandlerThread:87704 [system_info.py:__init__():46] System info init done
+2023-11-30 22:33:17,495 INFO    HandlerThread:87704 [system_monitor.py:start():150] Starting system monitor
+2023-11-30 22:33:17,495 INFO    SystemMonitor:87704 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2023-11-30 22:33:17,495 INFO    HandlerThread:87704 [system_monitor.py:probe():168] Collecting system info
+2023-11-30 22:33:17,496 INFO    SystemMonitor:87704 [interfaces.py:start():168] Started cpu
+2023-11-30 22:33:17,496 INFO    SystemMonitor:87704 [interfaces.py:start():168] Started disk
+2023-11-30 22:33:17,496 INFO    SystemMonitor:87704 [interfaces.py:start():168] Started gpu
+2023-11-30 22:33:17,497 INFO    SystemMonitor:87704 [interfaces.py:start():168] Started memory
+2023-11-30 22:33:17,497 INFO    SystemMonitor:87704 [interfaces.py:start():168] Started network
+2023-11-30 22:33:17,525 DEBUG   HandlerThread:87704 [system_info.py:probe():195] Probing system
+2023-11-30 22:33:17,526 DEBUG   HandlerThread:87704 [system_info.py:_probe_git():180] Probing git
+2023-11-30 22:33:17,529 DEBUG   HandlerThread:87704 [system_info.py:_probe_git():188] Probing git done
+2023-11-30 22:33:17,529 DEBUG   HandlerThread:87704 [system_info.py:probe():241] Probing system done
+2023-11-30 22:33:17,529 DEBUG   HandlerThread:87704 [system_monitor.py:probe():177] {'os': 'Linux-5.15.0-89-generic-x86_64-with-glibc2.31', 'python': '3.10.13', 'heartbeatAt': '2023-11-30T21:33:17.525247', 'startedAt': '2023-11-30T21:33:16.776379', 'docker': None, 'cuda': None, 'args': ('--epochs=100', '--geometry=euclidean', '--lr=0.0001', '--method=bezier', '--nc=8', '--regularization=0.01'), 'state': 'running', 'program': '/home/tbertrand/Bureau/dynamic-off-the-grid/unraveled_frank_wolfe_3_spikes.py', 'codePath': 'unraveled_frank_wolfe_3_spikes.py', 'git': {'remote': 'https://gitlab.inria.fr/blaville/dynamic-off-the-grid.git', 'commit': '6d00ccd3ccc89bdd18e75630ce6e44cff5ffccb4'}, 'email': 'tbertrand@ceremade.dauphine.fr', 'root': '/home/tbertrand/Bureau/dynamic-off-the-grid', 'host': 'P7550BERTRAND', 'username': 'tbertrand', 'executable': '/home/tbertrand/anaconda3/envs/fmicnn-condav2/bin/python', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 2.7056874999999994, 'min': 800.0, 'max': 5300.0}, 'cpu_freq_per_core': [{'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 4.853, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 4.838, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}], 'disk': {'total': 1831.3967514038086, 'used': 440.50135803222656}, 'gpu': 'Quadro T2000', 'gpu_count': 1, 'gpu_devices': [{'name': 'Quadro T2000', 'memory_total': 4066574336}], 'memory': {'total': 31.047687530517578}}
+2023-11-30 22:33:17,529 INFO    HandlerThread:87704 [system_monitor.py:probe():178] Finished collecting system info
+2023-11-30 22:33:17,529 INFO    HandlerThread:87704 [system_monitor.py:probe():181] Publishing system info
+2023-11-30 22:33:17,529 DEBUG   HandlerThread:87704 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-11-30 22:33:17,529 DEBUG   HandlerThread:87704 [system_info.py:_save_pip():67] Saving pip packages done
+2023-11-30 22:33:17,530 DEBUG   HandlerThread:87704 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-11-30 22:33:18,269 INFO    Thread-13 :87704 [dir_watcher.py:_on_file_created():275] file/dir created: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/wandb-summary.json
+2023-11-30 22:33:18,270 INFO    Thread-13 :87704 [dir_watcher.py:_on_file_created():275] file/dir created: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/requirements.txt
+2023-11-30 22:33:18,270 INFO    Thread-13 :87704 [dir_watcher.py:_on_file_created():275] file/dir created: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/conda-environment.yaml
+2023-11-30 22:33:24,184 DEBUG   HandlerThread:87704 [system_info.py:_save_conda():86] Saving conda packages done
+2023-11-30 22:33:24,185 INFO    HandlerThread:87704 [system_monitor.py:probe():183] Finished publishing system info
+2023-11-30 22:33:24,219 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: stop_status
+2023-11-30 22:33:24,220 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: stop_status
+2023-11-30 22:33:24,271 INFO    Thread-13 :87704 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/conda-environment.yaml
+2023-11-30 22:33:24,271 INFO    Thread-13 :87704 [dir_watcher.py:_on_file_created():275] file/dir created: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/wandb-metadata.json
+2023-11-30 22:33:24,507 DEBUG   SenderThread:87704 [sender.py:send():303] send: telemetry
+2023-11-30 22:33:24,512 DEBUG   SenderThread:87704 [sender.py:send():303] send: files
+2023-11-30 22:33:24,512 INFO    SenderThread:87704 [sender.py:_save_file():1171] saving file wandb-metadata.json with policy now
+2023-11-30 22:33:25,113 INFO    Thread-16 :87704 [upload_job.py:push():143] Uploaded file /tmp/tmp5hkkg7j9wandb/3eumwe0r-wandb-metadata.json
+2023-11-30 22:33:25,271 INFO    Thread-13 :87704 [dir_watcher.py:_on_file_created():275] file/dir created: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/output.log
+2023-11-30 22:33:27,272 INFO    Thread-13 :87704 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/output.log
+2023-11-30 22:33:29,273 INFO    Thread-13 :87704 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/output.log
+2023-11-30 22:33:30,709 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: partial_history
+2023-11-30 22:33:30,710 DEBUG   SenderThread:87704 [sender.py:send():303] send: files
+2023-11-30 22:33:30,712 INFO    SenderThread:87704 [sender.py:_save_file():1171] saving file media/images/reconstruction_0_fd483cdd0504690d448a.png with policy now
+2023-11-30 22:33:30,712 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: partial_history
+2023-11-30 22:33:30,713 DEBUG   SenderThread:87704 [sender.py:send():303] send: history
+2023-11-30 22:33:30,715 DEBUG   SenderThread:87704 [sender.py:send():303] send: summary
+2023-11-30 22:33:30,715 INFO    SenderThread:87704 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-11-30 22:33:30,715 DEBUG   SenderThread:87704 [sender.py:send():303] send: history
+2023-11-30 22:33:30,716 DEBUG   SenderThread:87704 [sender.py:send():303] send: summary
+2023-11-30 22:33:30,717 INFO    SenderThread:87704 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-11-30 22:33:30,718 DEBUG   SenderThread:87704 [sender.py:send():303] send: telemetry
+2023-11-30 22:33:30,718 DEBUG   SenderThread:87704 [sender.py:send():303] send: exit
+2023-11-30 22:33:30,718 INFO    SenderThread:87704 [sender.py:send_exit():442] handling exit code: 0
+2023-11-30 22:33:30,718 INFO    SenderThread:87704 [sender.py:send_exit():444] handling runtime: 13
+2023-11-30 22:33:30,718 INFO    SenderThread:87704 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-11-30 22:33:30,718 INFO    SenderThread:87704 [sender.py:send_exit():450] send defer
+2023-11-30 22:33:30,718 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 22:33:30,718 INFO    HandlerThread:87704 [handler.py:handle_request_defer():162] handle defer: 0
+2023-11-30 22:33:30,718 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: defer
+2023-11-30 22:33:30,718 INFO    SenderThread:87704 [sender.py:send_request_defer():459] handle sender defer: 0
+2023-11-30 22:33:30,718 INFO    SenderThread:87704 [sender.py:transition_state():463] send defer: 1
+2023-11-30 22:33:30,718 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 22:33:30,718 INFO    HandlerThread:87704 [handler.py:handle_request_defer():162] handle defer: 1
+2023-11-30 22:33:30,718 INFO    HandlerThread:87704 [system_monitor.py:finish():160] Stopping system monitor
+2023-11-30 22:33:30,719 DEBUG   SystemMonitor:87704 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2023-11-30 22:33:30,719 INFO    HandlerThread:87704 [interfaces.py:finish():173] Joined cpu
+2023-11-30 22:33:30,719 INFO    HandlerThread:87704 [interfaces.py:finish():173] Joined disk
+2023-11-30 22:33:30,719 DEBUG   SystemMonitor:87704 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2023-11-30 22:33:30,719 DEBUG   SystemMonitor:87704 [system_monitor.py:_start():141] Publishing last batch of metrics
+2023-11-30 22:33:30,757 INFO    HandlerThread:87704 [interfaces.py:finish():173] Joined gpu
+2023-11-30 22:33:30,757 INFO    HandlerThread:87704 [interfaces.py:finish():173] Joined memory
+2023-11-30 22:33:30,757 INFO    HandlerThread:87704 [interfaces.py:finish():173] Joined network
+2023-11-30 22:33:30,757 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: defer
+2023-11-30 22:33:30,758 INFO    SenderThread:87704 [sender.py:send_request_defer():459] handle sender defer: 1
+2023-11-30 22:33:30,758 INFO    SenderThread:87704 [sender.py:transition_state():463] send defer: 2
+2023-11-30 22:33:30,758 DEBUG   SenderThread:87704 [sender.py:send():303] send: stats
+2023-11-30 22:33:30,758 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 22:33:30,758 INFO    HandlerThread:87704 [handler.py:handle_request_defer():162] handle defer: 2
+2023-11-30 22:33:30,758 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: defer
+2023-11-30 22:33:30,758 INFO    SenderThread:87704 [sender.py:send_request_defer():459] handle sender defer: 2
+2023-11-30 22:33:30,758 INFO    SenderThread:87704 [sender.py:transition_state():463] send defer: 3
+2023-11-30 22:33:30,759 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 22:33:30,759 INFO    HandlerThread:87704 [handler.py:handle_request_defer():162] handle defer: 3
+2023-11-30 22:33:30,759 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: defer
+2023-11-30 22:33:30,759 INFO    SenderThread:87704 [sender.py:send_request_defer():459] handle sender defer: 3
+2023-11-30 22:33:30,759 INFO    SenderThread:87704 [sender.py:transition_state():463] send defer: 4
+2023-11-30 22:33:30,759 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 22:33:30,759 INFO    HandlerThread:87704 [handler.py:handle_request_defer():162] handle defer: 4
+2023-11-30 22:33:30,759 DEBUG   SenderThread:87704 [sender.py:send():303] send: summary
+2023-11-30 22:33:30,760 INFO    SenderThread:87704 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-11-30 22:33:30,760 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: defer
+2023-11-30 22:33:30,760 INFO    SenderThread:87704 [sender.py:send_request_defer():459] handle sender defer: 4
+2023-11-30 22:33:30,760 INFO    SenderThread:87704 [sender.py:transition_state():463] send defer: 5
+2023-11-30 22:33:30,760 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 22:33:30,760 INFO    HandlerThread:87704 [handler.py:handle_request_defer():162] handle defer: 5
+2023-11-30 22:33:30,760 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: defer
+2023-11-30 22:33:30,760 INFO    SenderThread:87704 [sender.py:send_request_defer():459] handle sender defer: 5
+2023-11-30 22:33:30,993 INFO    SenderThread:87704 [sender.py:transition_state():463] send defer: 6
+2023-11-30 22:33:30,993 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 22:33:30,993 INFO    HandlerThread:87704 [handler.py:handle_request_defer():162] handle defer: 6
+2023-11-30 22:33:30,994 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: defer
+2023-11-30 22:33:30,994 INFO    SenderThread:87704 [sender.py:send_request_defer():459] handle sender defer: 6
+2023-11-30 22:33:31,275 INFO    Thread-13 :87704 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/wandb-summary.json
+2023-11-30 22:33:31,276 INFO    Thread-13 :87704 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/config.yaml
+2023-11-30 22:33:31,276 INFO    Thread-13 :87704 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/output.log
+2023-11-30 22:33:31,276 INFO    Thread-13 :87704 [dir_watcher.py:_on_file_created():275] file/dir created: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/media/images/reconstruction_0_fd483cdd0504690d448a.png
+2023-11-30 22:33:31,277 INFO    Thread-13 :87704 [dir_watcher.py:_on_file_created():275] file/dir created: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/media/images
+2023-11-30 22:33:31,277 INFO    Thread-13 :87704 [dir_watcher.py:_on_file_created():275] file/dir created: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/media
+2023-11-30 22:33:31,315 INFO    Thread-17 :87704 [upload_job.py:push():143] Uploaded file /tmp/tmp5hkkg7j9wandb/2e4td7h9-media/images/reconstruction_0_fd483cdd0504690d448a.png
+2023-11-30 22:33:31,712 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: poll_exit
+2023-11-30 22:33:32,114 INFO    Thread-18 :87704 [upload_job.py:push():143] Uploaded file /tmp/tmp5hkkg7j9wandb/2wh82yb4-media/images/reconstruction_0_fd483cdd0504690d448a.png
+2023-11-30 22:33:32,529 INFO    SenderThread:87704 [sender.py:transition_state():463] send defer: 7
+2023-11-30 22:33:32,530 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: poll_exit
+2023-11-30 22:33:32,531 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 22:33:32,531 INFO    HandlerThread:87704 [handler.py:handle_request_defer():162] handle defer: 7
+2023-11-30 22:33:32,531 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: defer
+2023-11-30 22:33:32,532 INFO    SenderThread:87704 [sender.py:send_request_defer():459] handle sender defer: 7
+2023-11-30 22:33:32,532 INFO    SenderThread:87704 [dir_watcher.py:finish():362] shutting down directory watcher
+2023-11-30 22:33:32,713 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: poll_exit
+2023-11-30 22:33:33,277 INFO    Thread-13 :87704 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/output.log
+2023-11-30 22:33:33,278 INFO    SenderThread:87704 [dir_watcher.py:finish():392] scan: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files
+2023-11-30 22:33:33,278 INFO    SenderThread:87704 [dir_watcher.py:finish():406] scan save: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/requirements.txt requirements.txt
+2023-11-30 22:33:33,279 INFO    SenderThread:87704 [dir_watcher.py:finish():406] scan save: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/wandb-metadata.json wandb-metadata.json
+2023-11-30 22:33:33,279 INFO    SenderThread:87704 [dir_watcher.py:finish():406] scan save: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/wandb-summary.json wandb-summary.json
+2023-11-30 22:33:33,279 INFO    SenderThread:87704 [dir_watcher.py:finish():406] scan save: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/conda-environment.yaml conda-environment.yaml
+2023-11-30 22:33:33,285 INFO    SenderThread:87704 [dir_watcher.py:finish():406] scan save: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/config.yaml config.yaml
+2023-11-30 22:33:33,287 INFO    SenderThread:87704 [dir_watcher.py:finish():406] scan save: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/output.log output.log
+2023-11-30 22:33:33,288 INFO    SenderThread:87704 [dir_watcher.py:finish():406] scan save: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/media/images/reconstruction_0_fd483cdd0504690d448a.png media/images/reconstruction_0_fd483cdd0504690d448a.png
+2023-11-30 22:33:33,289 INFO    SenderThread:87704 [sender.py:transition_state():463] send defer: 8
+2023-11-30 22:33:33,289 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: poll_exit
+2023-11-30 22:33:33,291 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 22:33:33,291 INFO    HandlerThread:87704 [handler.py:handle_request_defer():162] handle defer: 8
+2023-11-30 22:33:33,292 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: defer
+2023-11-30 22:33:33,292 INFO    SenderThread:87704 [sender.py:send_request_defer():459] handle sender defer: 8
+2023-11-30 22:33:33,292 INFO    SenderThread:87704 [file_pusher.py:finish():168] shutting down file pusher
+2023-11-30 22:33:33,713 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: poll_exit
+2023-11-30 22:33:33,714 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: poll_exit
+2023-11-30 22:33:33,886 INFO    Thread-22 :87704 [upload_job.py:push():143] Uploaded file /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/config.yaml
+2023-11-30 22:33:33,892 INFO    Thread-23 :87704 [upload_job.py:push():143] Uploaded file /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/output.log
+2023-11-30 22:33:33,894 INFO    Thread-19 :87704 [upload_job.py:push():143] Uploaded file /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/requirements.txt
+2023-11-30 22:33:33,939 INFO    Thread-20 :87704 [upload_job.py:push():143] Uploaded file /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/wandb-summary.json
+2023-11-30 22:33:33,957 INFO    Thread-21 :87704 [upload_job.py:push():143] Uploaded file /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/files/conda-environment.yaml
+2023-11-30 22:33:34,158 INFO    Thread-12 (_thread_body):87704 [sender.py:transition_state():463] send defer: 9
+2023-11-30 22:33:34,159 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 22:33:34,159 INFO    HandlerThread:87704 [handler.py:handle_request_defer():162] handle defer: 9
+2023-11-30 22:33:34,159 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: defer
+2023-11-30 22:33:34,160 INFO    SenderThread:87704 [sender.py:send_request_defer():459] handle sender defer: 9
+2023-11-30 22:33:34,160 INFO    SenderThread:87704 [file_pusher.py:join():173] waiting for file pusher
+2023-11-30 22:33:34,160 INFO    SenderThread:87704 [sender.py:transition_state():463] send defer: 10
+2023-11-30 22:33:34,160 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 22:33:34,161 INFO    HandlerThread:87704 [handler.py:handle_request_defer():162] handle defer: 10
+2023-11-30 22:33:34,161 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: defer
+2023-11-30 22:33:34,161 INFO    SenderThread:87704 [sender.py:send_request_defer():459] handle sender defer: 10
+2023-11-30 22:33:34,413 INFO    SenderThread:87704 [sender.py:transition_state():463] send defer: 11
+2023-11-30 22:33:34,413 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 22:33:34,414 INFO    HandlerThread:87704 [handler.py:handle_request_defer():162] handle defer: 11
+2023-11-30 22:33:34,414 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: defer
+2023-11-30 22:33:34,414 INFO    SenderThread:87704 [sender.py:send_request_defer():459] handle sender defer: 11
+2023-11-30 22:33:34,414 INFO    SenderThread:87704 [sender.py:transition_state():463] send defer: 12
+2023-11-30 22:33:34,415 DEBUG   SenderThread:87704 [sender.py:send():303] send: final
+2023-11-30 22:33:34,416 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: defer
+2023-11-30 22:33:34,416 INFO    HandlerThread:87704 [handler.py:handle_request_defer():162] handle defer: 12
+2023-11-30 22:33:34,417 DEBUG   SenderThread:87704 [sender.py:send():303] send: footer
+2023-11-30 22:33:34,417 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: defer
+2023-11-30 22:33:34,417 INFO    SenderThread:87704 [sender.py:send_request_defer():459] handle sender defer: 12
+2023-11-30 22:33:34,420 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: poll_exit
+2023-11-30 22:33:34,420 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: poll_exit
+2023-11-30 22:33:34,422 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: server_info
+2023-11-30 22:33:34,423 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: get_summary
+2023-11-30 22:33:34,423 DEBUG   SenderThread:87704 [sender.py:send_request():317] send_request: server_info
+2023-11-30 22:33:34,427 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: sampled_history
+2023-11-30 22:33:34,828 DEBUG   HandlerThread:87704 [handler.py:handle_request():139] handle_request: shutdown
+2023-11-30 22:33:34,829 INFO    HandlerThread:87704 [handler.py:finish():814] shutting down handler
+2023-11-30 22:33:35,418 INFO    WriterThread:87704 [datastore.py:close():279] close: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_223316-ncd0mabh/run-ncd0mabh.wandb
+2023-11-30 22:33:35,826 INFO    SenderThread:87704 [sender.py:finish():1331] shutting down sender
+2023-11-30 22:33:35,827 INFO    SenderThread:87704 [file_pusher.py:finish():168] shutting down file pusher
+2023-11-30 22:33:35,827 INFO    SenderThread:87704 [file_pusher.py:join():173] waiting for file pusher
+2023-11-30 22:33:36,834 INFO    MainThread:87704 [internal.py:handle_exit():78] Internal process exited

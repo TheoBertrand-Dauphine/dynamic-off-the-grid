@@ -1,0 +1,49 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.13.5
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.10.13
+    start_time: 1701379416.904076
+    t:
+      1:
+      - 1
+      - 55
+      2:
+      - 1
+      - 55
+      3:
+      - 2
+      - 13
+      - 16
+      - 23
+      - 37
+      4: 3.10.13
+      5: 0.13.5
+      8:
+      - 5
+epochs:
+  desc: null
+  value: 100
+geometry:
+  desc: null
+  value: euclidean
+lr:
+  desc: null
+  value: 0.0001
+method:
+  desc: null
+  value: polygonal
+n:
+  desc: null
+  value: 32
+nc:
+  desc: null
+  value: 128
+regularization:
+  desc: null
+  value: 0.05

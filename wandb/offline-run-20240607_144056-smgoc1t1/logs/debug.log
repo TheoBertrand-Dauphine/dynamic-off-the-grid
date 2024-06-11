@@ -1,0 +1,26 @@
+2024-06-07 14:40:56,390 INFO    MainThread:1721602 [wandb_setup.py:_flush():68] Configure stats pid to 1721602
+2024-06-07 14:40:56,390 INFO    MainThread:1721602 [wandb_setup.py:_flush():68] Loading settings from /home/tbertrand/.config/wandb/settings
+2024-06-07 14:40:56,390 INFO    MainThread:1721602 [wandb_setup.py:_flush():68] Loading settings from /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/settings
+2024-06-07 14:40:56,390 INFO    MainThread:1721602 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2024-06-07 14:40:56,390 INFO    MainThread:1721602 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'Discretization_curves.py', 'program': '/home/tbertrand/Bureau/dynamic-off-the-grid/Discretization_curves.py'}
+2024-06-07 14:40:56,390 INFO    MainThread:1721602 [wandb_init.py:_log_setup():476] Logging user logs to /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/offline-run-20240607_144056-smgoc1t1/logs/debug.log
+2024-06-07 14:40:56,390 INFO    MainThread:1721602 [wandb_init.py:_log_setup():477] Logging internal logs to /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/offline-run-20240607_144056-smgoc1t1/logs/debug-internal.log
+2024-06-07 14:40:56,390 INFO    MainThread:1721602 [wandb_init.py:_jupyter_setup():426] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x7f220f366950>
+2024-06-07 14:40:56,390 INFO    MainThread:1721602 [wandb_init.py:init():516] calling init triggers
+2024-06-07 14:40:56,390 INFO    MainThread:1721602 [wandb_init.py:init():519] wandb.init called with sweep_config: {}
+config: {'epochs': 100, 'regularization': 0.1, 'n': 32, 'nc': 32, 'geometry': 'euclidean', 'method': 'polygonal', 'lr': 0.01, 'nb_pics': 2, 'epsilon': 0.5, 'xi': 1.0, 'n_start': 16}
+2024-06-07 14:40:56,390 INFO    MainThread:1721602 [wandb_init.py:init():569] starting backend
+2024-06-07 14:40:56,390 INFO    MainThread:1721602 [wandb_init.py:init():573] setting up manager
+2024-06-07 14:40:56,391 INFO    MainThread:1721602 [backend.py:_multiprocessing_setup():102] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-06-07 14:40:56,392 INFO    MainThread:1721602 [wandb_init.py:init():580] backend started and connected
+2024-06-07 14:40:56,397 INFO    MainThread:1721602 [wandb_run.py:_label_probe_notebook():1113] probe notebook
+2024-06-07 14:40:56,397 INFO    MainThread:1721602 [wandb_run.py:_label_probe_notebook():1123] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-06-07 14:40:56,397 INFO    MainThread:1721602 [wandb_init.py:init():658] updated telemetry
+2024-06-07 14:40:56,400 INFO    MainThread:1721602 [wandb_init.py:init():728] starting run threads in backend
+2024-06-07 14:41:01,407 INFO    MainThread:1721602 [wandb_run.py:_console_start():1980] atexit reg
+2024-06-07 14:41:01,407 INFO    MainThread:1721602 [wandb_run.py:_redirect():1838] redirect: SettingsConsole.WRAP_RAW
+2024-06-07 14:41:01,407 INFO    MainThread:1721602 [wandb_run.py:_redirect():1903] Wrapping output streams.
+2024-06-07 14:41:01,407 INFO    MainThread:1721602 [wandb_run.py:_redirect():1925] Redirects installed.
+2024-06-07 14:41:01,408 INFO    MainThread:1721602 [wandb_init.py:init():765] run started, returning control to user process
+2024-06-07 14:41:01,810 INFO    MainThread:1721602 [wandb_init.py:_pause_backend():389] pausing backend
+2024-06-07 14:41:01,810 INFO    MainThread:1721602 [jupyter.py:save_ipynb():378] not saving jupyter notebook

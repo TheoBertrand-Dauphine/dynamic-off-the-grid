@@ -1,0 +1,45 @@
+Computing UFW step 0:   0%|                                                                                                                                                    | 0/10 [00:00<?, ?it/s]/home/tbertrand/Bureau/dynamic-off-the-grid/Discretization_curves.py:81: UserWarning: The use of `x.T` on tensors of dimension other than 2 to reverse their shape is deprecated and it will throw an error in a future release. Consider `x.mT` to transpose batches of matrices or `x.permute(*torch.arange(x.ndim - 1, -1, -1))` to reverse the dimensions of a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/aten/src/ATen/native/TensorShape.cpp:3614.)
+  return list_points[-1].T
+Computing UFW: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:02<00:00,  1.19it/s]
+Traceback (most recent call last):
+  File "/home/tbertrand/Bureau/dynamic-off-the-grid/./unraveled_frank_wolfe_3_spikes.py", line 218, in <module>
+    main(args)
+  File "/home/tbertrand/Bureau/dynamic-off-the-grid/./unraveled_frank_wolfe_3_spikes.py", line 199, in main
+    figures_UFW(result_vec, points_vec, phi_vec, nrj, y_k, phi0)
+  File "/home/tbertrand/Bureau/dynamic-off-the-grid/./unraveled_frank_wolfe_3_spikes.py", line 98, in figures_UFW
+    wandb.log({'reconstruction': plt})
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 292, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 255, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1609, in log
+    self._log(data=data, step=step, commit=commit)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1391, in _log
+    self._partial_history_callback(data, step, commit)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1275, in _partial_history_callback
+    self._backend.interface.publish_partial_history(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 542, in publish_partial_history
+    data = history_dict_to_json(run, data, step=user_step, ignore_copy_err=True)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/data_types/utils.py", line 52, in history_dict_to_json
+    payload[key] = val_to_json(
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/data_types/utils.py", line 80, in val_to_json
+    val = Plotly.make_plot_media(val)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/sdk/data_types/plotly.py", line 48, in make_plot_media
+    val = util.matplotlib_to_plotly(val)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/util.py", line 608, in matplotlib_to_plotly
+    return tools.mpl_to_plotly(obj)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/plotly/tools.py", line 106, in mpl_to_plotly
+    matplotlylib.Exporter(renderer).run(fig)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/plotly/matplotlylib/mplexporter/exporter.py", line 53, in run
+    self.crawl_fig(fig)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/plotly/matplotlylib/mplexporter/exporter.py", line 122, in crawl_fig
+    with self.renderer.draw_figure(fig=fig, props=utils.get_figure_properties(fig)):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/plotly/matplotlylib/mplexporter/renderers/base.py", line 44, in draw_figure
+    self.open_figure(fig=fig, props=props)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/plotly/matplotlylib/renderer.py", line 87, in open_figure
+    self.mpl_x_bounds, self.mpl_y_bounds = mpltools.get_axes_bounds(fig)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/plotly/matplotlylib/mpltools.py", line 264, in get_axes_bounds
+    x_min, y_min, x_max, y_max = min(x_min), min(y_min), max(x_max), max(y_max)
+ValueError: min() arg is an empty sequence

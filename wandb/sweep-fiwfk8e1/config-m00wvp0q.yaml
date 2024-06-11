@@ -1,0 +1,14 @@
+wandb_version: 1
+
+epochs:
+  value: 100
+geometry:
+  value: euclidean
+lr:
+  value: 0.0005
+method:
+  value: polygonal
+nc:
+  value: 2
+regularization:
+  value: 0.1

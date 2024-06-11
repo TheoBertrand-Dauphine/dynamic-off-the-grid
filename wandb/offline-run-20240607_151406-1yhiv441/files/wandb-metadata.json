@@ -1,0 +1,125 @@
+{
+    "os": "Linux-5.15.0-107-generic-x86_64-with-glibc2.31",
+    "python": "3.10.13",
+    "heartbeatAt": "2024-06-07T13:14:06.287242",
+    "startedAt": "2024-06-07T13:14:06.237733",
+    "docker": null,
+    "cuda": null,
+    "args": null,
+    "state": "running",
+    "program": "/home/tbertrand/Bureau/dynamic-off-the-grid/unraveled_frank_wolfe_3_spikes.py",
+    "codePath": "unraveled_frank_wolfe_3_spikes.py",
+    "git": {
+        "remote": "https://gitlab.inria.fr/blaville/dynamic-off-the-grid.git",
+        "commit": "6d00ccd3ccc89bdd18e75630ce6e44cff5ffccb4"
+    },
+    "email": "tbertrand@ceremade.dauphine.fr",
+    "root": "/home/tbertrand/Bureau/dynamic-off-the-grid",
+    "host": "P7550BERTRAND",
+    "username": "tbertrand",
+    "executable": "/home/tbertrand/anaconda3/envs/fmicnn-condav2/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 4.2056249999999995,
+        "min": 800.0,
+        "max": 5300.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 4.199,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 4.321,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 4.198,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 4.194,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 4.038,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 4.325,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 4.153,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 4.446,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 4.208,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 4.157,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 4.132,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 4.128,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 4.171,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 4.319,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 4.111,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 4.19,
+            "min": 800.0,
+            "max": 5300.0
+        }
+    ],
+    "disk": {
+        "total": 1831.3967514038086,
+        "used": 681.9260597229004
+    },
+    "gpu": "Quadro T2000",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "Quadro T2000",
+            "memory_total": 4066574336
+        }
+    ],
+    "memory": {
+        "total": 31.047698974609375
+    }
+}

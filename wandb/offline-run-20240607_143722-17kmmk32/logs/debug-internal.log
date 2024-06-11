@@ -1,0 +1,54 @@
+2024-06-07 14:37:22,612 INFO    StreamThr :1717738 [internal.py:wandb_internal():88] W&B internal server running at pid: 1717738, started at: 2024-06-07 14:37:22.611768
+2024-06-07 14:37:22,613 DEBUG   HandlerThread:1717738 [handler.py:handle_request():139] handle_request: status
+2024-06-07 14:37:22,614 DEBUG   SenderThread:1717738 [sender.py:send_request():317] send_request: status
+2024-06-07 14:37:22,615 INFO    WriterThread:1717738 [datastore.py:open_for_write():75] open: /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/offline-run-20240607_143722-17kmmk32/run-17kmmk32.wandb
+2024-06-07 14:37:22,622 DEBUG   HandlerThread:1717738 [handler.py:handle_request():139] handle_request: run_start
+2024-06-07 14:37:22,624 DEBUG   HandlerThread:1717738 [system_info.py:__init__():31] System info init
+2024-06-07 14:37:22,624 DEBUG   HandlerThread:1717738 [system_info.py:__init__():46] System info init done
+2024-06-07 14:37:22,624 INFO    HandlerThread:1717738 [system_monitor.py:start():150] Starting system monitor
+2024-06-07 14:37:22,624 INFO    SystemMonitor:1717738 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2024-06-07 14:37:22,624 INFO    HandlerThread:1717738 [system_monitor.py:probe():168] Collecting system info
+2024-06-07 14:37:22,625 INFO    SystemMonitor:1717738 [interfaces.py:start():168] Started cpu
+2024-06-07 14:37:22,625 INFO    SystemMonitor:1717738 [interfaces.py:start():168] Started disk
+2024-06-07 14:37:22,626 INFO    SystemMonitor:1717738 [interfaces.py:start():168] Started gpu
+2024-06-07 14:37:22,626 INFO    SystemMonitor:1717738 [interfaces.py:start():168] Started memory
+2024-06-07 14:37:22,626 INFO    SystemMonitor:1717738 [interfaces.py:start():168] Started network
+2024-06-07 14:37:22,688 DEBUG   HandlerThread:1717738 [system_info.py:probe():195] Probing system
+2024-06-07 14:37:22,691 DEBUG   HandlerThread:1717738 [system_info.py:_probe_git():180] Probing git
+2024-06-07 14:37:22,701 DEBUG   HandlerThread:1717738 [system_info.py:_probe_git():188] Probing git done
+2024-06-07 14:37:22,702 DEBUG   HandlerThread:1717738 [system_info.py:probe():241] Probing system done
+2024-06-07 14:37:22,702 DEBUG   HandlerThread:1717738 [system_monitor.py:probe():177] {'os': 'Linux-5.15.0-107-generic-x86_64-with-glibc2.31', 'python': '3.10.13', 'heartbeatAt': '2024-06-07T12:37:22.689051', 'startedAt': '2024-06-07T12:37:22.605871', 'docker': None, 'cuda': None, 'args': None, 'state': 'running', 'program': '/home/tbertrand/Bureau/dynamic-off-the-grid/unraveled_frank_wolfe_3_spikes.py', 'codePath': 'unraveled_frank_wolfe_3_spikes.py', 'git': {'remote': 'https://gitlab.inria.fr/blaville/dynamic-off-the-grid.git', 'commit': '6d00ccd3ccc89bdd18e75630ce6e44cff5ffccb4'}, 'email': 'tbertrand@ceremade.dauphine.fr', 'root': '/home/tbertrand/Bureau/dynamic-off-the-grid', 'host': 'P7550BERTRAND', 'username': 'tbertrand', 'executable': '/home/tbertrand/anaconda3/envs/fmicnn-condav2/bin/python', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 2.4026874999999994, 'min': 800.0, 'max': 5300.0}, 'cpu_freq_per_core': [{'current': 1.652, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 1.3, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 1.3, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}, {'current': 2.4, 'min': 800.0, 'max': 5300.0}], 'disk': {'total': 1831.3967514038086, 'used': 681.911792755127}, 'gpu': 'Quadro T2000', 'gpu_count': 1, 'gpu_devices': [{'name': 'Quadro T2000', 'memory_total': 4066574336}], 'memory': {'total': 31.047698974609375}}
+2024-06-07 14:37:22,702 INFO    HandlerThread:1717738 [system_monitor.py:probe():178] Finished collecting system info
+2024-06-07 14:37:22,702 INFO    HandlerThread:1717738 [system_monitor.py:probe():181] Publishing system info
+2024-06-07 14:37:22,702 DEBUG   HandlerThread:1717738 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2024-06-07 14:37:22,703 DEBUG   HandlerThread:1717738 [system_info.py:_save_pip():67] Saving pip packages done
+2024-06-07 14:37:22,703 DEBUG   HandlerThread:1717738 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2024-06-07 14:37:29,132 DEBUG   HandlerThread:1717738 [system_info.py:_save_conda():86] Saving conda packages done
+2024-06-07 14:37:29,132 INFO    HandlerThread:1717738 [system_monitor.py:probe():183] Finished publishing system info
+2024-06-07 14:37:29,159 DEBUG   HandlerThread:1717738 [handler.py:handle_request():139] handle_request: pause
+2024-06-07 14:37:29,159 INFO    HandlerThread:1717738 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-07 14:37:29,159 INFO    HandlerThread:1717738 [system_monitor.py:finish():160] Stopping system monitor
+2024-06-07 14:37:29,160 DEBUG   SystemMonitor:1717738 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2024-06-07 14:37:29,161 DEBUG   SystemMonitor:1717738 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2024-06-07 14:37:29,161 DEBUG   SystemMonitor:1717738 [system_monitor.py:_start():141] Publishing last batch of metrics
+2024-06-07 14:37:29,161 INFO    HandlerThread:1717738 [interfaces.py:finish():173] Joined cpu
+2024-06-07 14:37:29,161 INFO    HandlerThread:1717738 [interfaces.py:finish():173] Joined disk
+2024-06-07 14:37:29,187 INFO    HandlerThread:1717738 [interfaces.py:finish():173] Joined gpu
+2024-06-07 14:37:29,187 INFO    HandlerThread:1717738 [interfaces.py:finish():173] Joined memory
+2024-06-07 14:37:29,187 INFO    HandlerThread:1717738 [interfaces.py:finish():173] Joined network
+2024-06-07 14:37:43,176 DEBUG   HandlerThread:1717738 [handler.py:handle_request():139] handle_request: resume
+2024-06-07 14:37:43,176 INFO    HandlerThread:1717738 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-07 14:37:43,180 DEBUG   HandlerThread:1717738 [handler.py:handle_request():139] handle_request: pause
+2024-06-07 14:37:43,181 INFO    HandlerThread:1717738 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-07 14:37:57,271 DEBUG   HandlerThread:1717738 [handler.py:handle_request():139] handle_request: resume
+2024-06-07 14:37:57,271 INFO    HandlerThread:1717738 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-07 14:37:57,276 DEBUG   HandlerThread:1717738 [handler.py:handle_request():139] handle_request: pause
+2024-06-07 14:37:57,277 INFO    HandlerThread:1717738 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-07 14:38:24,386 DEBUG   HandlerThread:1717738 [handler.py:handle_request():139] handle_request: resume
+2024-06-07 14:38:24,386 INFO    HandlerThread:1717738 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-07 14:38:24,390 DEBUG   HandlerThread:1717738 [handler.py:handle_request():139] handle_request: pause
+2024-06-07 14:38:24,390 INFO    HandlerThread:1717738 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2024-06-07 14:38:57,788 DEBUG   HandlerThread:1717738 [handler.py:handle_request():139] handle_request: resume
+2024-06-07 14:38:57,788 INFO    HandlerThread:1717738 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2024-06-07 14:38:57,792 DEBUG   HandlerThread:1717738 [handler.py:handle_request():139] handle_request: pause
+2024-06-07 14:38:57,792 INFO    HandlerThread:1717738 [handler.py:handle_request_pause():696] stopping system metrics thread or process

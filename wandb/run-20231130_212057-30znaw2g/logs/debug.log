@@ -1,0 +1,40 @@
+2023-11-30 21:20:57,707 INFO    MainThread:16882 [wandb_setup.py:_flush():68] Configure stats pid to 16882
+2023-11-30 21:20:57,707 INFO    MainThread:16882 [wandb_setup.py:_flush():68] Loading settings from /home/tbertrand/.config/wandb/settings
+2023-11-30 21:20:57,707 INFO    MainThread:16882 [wandb_setup.py:_flush():68] Loading settings from /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/settings
+2023-11-30 21:20:57,707 INFO    MainThread:16882 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2023-11-30 21:20:57,707 INFO    MainThread:16882 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'unraveled_frank_wolfe_3_spikes.py', 'program': '/home/tbertrand/Bureau/dynamic-off-the-grid/./unraveled_frank_wolfe_3_spikes.py'}
+2023-11-30 21:20:57,707 INFO    MainThread:16882 [wandb_init.py:_log_setup():476] Logging user logs to /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_212057-30znaw2g/logs/debug.log
+2023-11-30 21:20:57,707 INFO    MainThread:16882 [wandb_init.py:_log_setup():477] Logging internal logs to /home/tbertrand/Bureau/dynamic-off-the-grid/wandb/run-20231130_212057-30znaw2g/logs/debug-internal.log
+2023-11-30 21:20:57,707 INFO    MainThread:16882 [wandb_init.py:init():516] calling init triggers
+2023-11-30 21:20:57,707 INFO    MainThread:16882 [wandb_init.py:init():519] wandb.init called with sweep_config: {}
+config: {'epochs': 10, 'regularization': 1e-05, 'n': 100, 'nc': 10, 'geometry': 'euclidean', 'method': 'bezier'}
+2023-11-30 21:20:57,708 INFO    MainThread:16882 [wandb_init.py:init():569] starting backend
+2023-11-30 21:20:57,708 INFO    MainThread:16882 [wandb_init.py:init():573] setting up manager
+2023-11-30 21:20:57,709 INFO    MainThread:16882 [backend.py:_multiprocessing_setup():102] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-11-30 21:20:57,710 INFO    MainThread:16882 [wandb_init.py:init():580] backend started and connected
+2023-11-30 21:20:57,710 INFO    MainThread:16882 [wandb_init.py:init():658] updated telemetry
+2023-11-30 21:20:57,713 INFO    MainThread:16882 [wandb_init.py:init():693] communicating run to backend with 60 second timeout
+2023-11-30 21:21:02,587 INFO    MainThread:16882 [wandb_run.py:_on_init():2000] communicating current version
+2023-11-30 21:21:02,757 INFO    MainThread:16882 [wandb_run.py:_on_init():2004] got version response upgrade_message: "wandb version 0.16.0 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-11-30 21:21:02,758 INFO    MainThread:16882 [wandb_init.py:init():728] starting run threads in backend
+2023-11-30 21:21:06,572 INFO    MainThread:16882 [wandb_run.py:_console_start():1980] atexit reg
+2023-11-30 21:21:06,572 INFO    MainThread:16882 [wandb_run.py:_redirect():1838] redirect: SettingsConsole.WRAP_RAW
+2023-11-30 21:21:06,572 INFO    MainThread:16882 [wandb_run.py:_redirect():1903] Wrapping output streams.
+2023-11-30 21:21:06,572 INFO    MainThread:16882 [wandb_run.py:_redirect():1925] Redirects installed.
+2023-11-30 21:21:06,573 INFO    MainThread:16882 [wandb_init.py:init():765] run started, returning control to user process
+2023-11-30 21:21:13,136 ERROR   MainThread:16882 [util.py:get_module():348] Error importing optional module plotly.tools
+Traceback (most recent call last):
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/site-packages/wandb/util.py", line 343, in get_module
+    return import_module(name)
+  File "/home/tbertrand/anaconda3/envs/fmicnn-condav2/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'plotly'
+2023-11-30 21:21:25,366 WARNING MsgRouterThr:16882 [router.py:message_loop():77] message_loop has been closed

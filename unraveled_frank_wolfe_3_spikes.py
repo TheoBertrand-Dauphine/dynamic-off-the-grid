@@ -169,7 +169,7 @@ def UFW(acquis_0, iteration, nc, sigma, n_epoch=150, regul=.00001, geom='euclide
         elif method=='polygonal':
             Curve = PolygonalCurveModule(nc,n_start, w=y, timestamps=timestamps)
         elif method=='exponential_RS':
-            Curve = PiecewiseGeodesic_RS(n_points=n, n_start=n_start, epsilon=epsilon, xi=xi, RHS=RHS, RHS_optim=RHS_optim, w=y, timestamps=timestamps)
+            Curve = PiecewiseGeodesic_RS(n_points=nc, n_start=n_start, epsilon=epsilon, xi=xi, RHS=RHS, RHS_optim=RHS_optim, w=y, timestamps=timestamps)
         else:
             raise ValueError('Unknown method')
 
@@ -215,7 +215,7 @@ def main(args):
 
     n = args.n
     nc = args.nc
-    dom_size = 32
+    dom_size = 16
 
     nb_pics = args.nb_pics
 
@@ -246,7 +246,7 @@ if __name__ == '__main__':
     parser.add_argument("--epochs", type=int, default=500, help="number of epochs to train (default: 100)")
     parser.add_argument("--regularization", type=float, default=0.1, help="regularization parameter")
     parser.add_argument("--n", type=int, default=21, help="number of points in the acquisition")
-    parser.add_argument("--nc", type=int, default=21, help="number of control points")
+    parser.add_argument("--nc", type=int, default=4, help="number of control points")
     parser.add_argument("--geometry", type=str, default='euclidean', help="geometry of the space")
     parser.add_argument("--method", type=str, default='exponential_RS', help="parametrisation de la courbe")
     parser.add_argument("--lr", type=float, default=1e-2, help="learning rate")

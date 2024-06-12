@@ -77,7 +77,7 @@ class BezierCurveModule(torch.nn.Module):
         
     def get_control_points(self):
         return self.control_points
-        
+    # @torch.compile
     def forward(self, timestamps):
         '''
         Evaluation of Bezier curve via naive implementation of de Casteljau algorithm
@@ -595,6 +595,7 @@ class PiecewiseGeodesic_RS(torch.nn.Module):
 
         assert (self.order == self.discretization_times.shape[0])
 
+    # @torch.compile
     def forward(self, timestamps):
         '''
         Evaluate the piecewise geodesic curves at the given timestamps.
@@ -677,6 +678,7 @@ class PiecewiseGeodesic_RS(torch.nn.Module):
         nrj = torch.zeros(self.n_start, n_epoch)
         plot_vec = torch.zeros(self.n_start, n_epoch, 3, n_sample*timestamps.shape[0])
         result_vec = torch.zeros(self.n_start, n_epoch, 3, timestamps.shape[0])
+        print(self.order)
         points_vec = torch.zeros(self.n_start, n_epoch, self.order, 3)
         phi_vec = torch.zeros(self.n_start, n_epoch, y.shape[0], y.shape[0])
 

@@ -47,7 +47,7 @@ class BezierCurveModule(torch.nn.Module):
     def __repr__(self):
         return "Bezier curve defined by the input control"
     
-    def __init__(self, nc=8, n_start=1, w=None, timestamps=None):
+    def __init__(self, nc=8, n_start=1, w=None, timestamps=None, h=1.):
         super().__init__()
         if w==None:
             self.control_points = torch.randn([n_start, nc,2], requires_grad=True)
@@ -59,7 +59,7 @@ class BezierCurveModule(torch.nn.Module):
             indices = torch.floor(timestamps_control_points*(w.shape[-1]-2)).long()
 
             w_interp = ((1-(timestamps_control_points*(w.shape[-1]-1)-indices)).unsqueeze(0).unsqueeze(0)*w[...,indices] + (timestamps_control_points*(w.shape[-1]-1)-indices).unsqueeze(0).unsqueeze(0)*w[...,indices+1].squeeze())
-            P = (torch.exp(w_interp)/torch.exp(w_interp).sum(dim=[0,1], keepdim=True)).numpy()
+            P = (torch.exp(h*w_interp)/torch.exp(h*w_interp).sum(dim=[0,1], keepdim=True)).numpy()
             random_choice = np.stack([np.random.choice(P.shape[0]*P.shape[1],n_start,p=P[:,:,i].reshape([-1])) for i in range(P.shape[-1])])
             self.control_points = X.reshape([2,-1])[:,random_choice].permute([2,1,0])
             self.control_points.requires_grad=True

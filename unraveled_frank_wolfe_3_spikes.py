@@ -16,7 +16,7 @@ from matplotlib.animation import FuncAnimation
 
 from Discretization_curves import BezierCurveModule, PolygonalCurveModule, PiecewiseGeodesic_RS, RHS_geodesic_RS_2D, RHS_geodesic_RS_parallel_2D
 
-torch.manual_seed(10)
+torch.manual_seed(11)
 
 def RS_relaxed_norm(x, v, eps=.05, xi=.1):
     assert(v.ndim == 2 and v.shape[0] == 3)
@@ -244,17 +244,17 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser( description="Training U-Net model for segmentation of brain MRI")
     parser.add_argument("--epochs", type=int, default=500, help="number of epochs to train (default: 100)")
-    parser.add_argument("--regularization", type=float, default=0.1, help="regularization parameter")
-    parser.add_argument("--n", type=int, default=21, help="number of points in the acquisition")
-    parser.add_argument("--nc", type=int, default=4, help="number of control points")
+    parser.add_argument("--regularization", type=float, default=0.4, help="regularization parameter")
+    parser.add_argument("--n", type=int, default=32, help="number of points in the acquisition")
+    parser.add_argument("--nc", type=int, default=32, help="number of control points")
     parser.add_argument("--geometry", type=str, default='euclidean', help="geometry of the space")
-    parser.add_argument("--method", type=str, default='exponential_RS', help="parametrisation de la courbe")
+    parser.add_argument("--method", type=str, default='polygonal', help="parametrisation de la courbe")
     parser.add_argument("--lr", type=float, default=1e-2, help="learning rate")
-    parser.add_argument("--nb_pics", type=int, default=2, help="number of spikes in the acquisition")
-    parser.add_argument("--epsilon", type=float, default=.5, help="epsilon parameter for the RS geometry")
+    parser.add_argument("--nb_pics", type=int, default=3, help="number of spikes in the acquisition")
+    parser.add_argument("--epsilon", type=float, default=.4, help="epsilon parameter for the RS geometry")
     parser.add_argument("--xi", type=float, default=1., help="xi parameter for the RS geometry")
-    parser.add_argument("--n_start", type=int, default=64, help="Number of curves for multistart")
-    parser.add_argument("--noise", type=float, default=.4, help="Number of curves for multistart")
+    parser.add_argument("--n_start", type=int, default=256, help="Number of curves for multistart")
+    parser.add_argument("--noise", type=float, default=.1, help="Number of curves for multistart")
 
     args, unknown = parser.parse_known_args()
 

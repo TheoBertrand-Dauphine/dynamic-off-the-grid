@@ -18,14 +18,6 @@ from Discretization_curves import BezierCurveModule, PolygonalCurveModule, Piece
 
 torch.manual_seed(11)
 
-def RS_relaxed_norm(x, v, eps=.05, xi=.1):
-    assert(v.ndim == 2 and v.shape[0] == 3)
-    # assert v.shape[0] == 3
-    theta = torch.remainder(x[2], torch.pi)
-    return((torch.cos(theta)*v[0] + torch.sin(theta)*v[1])**2
-           + (1/(eps**2))*(-torch.sin(theta)*v[0] + torch.cos(theta)*v[1])**2
-           + (xi**2)*v[2]**2)
-
 def build_3_spikes_acquisition(nt,sigma, dom_size, noise_level=0.6):
     timestamps = torch.linspace(0, 1, nt)
     reverse_time = torch.arange(0, 1, 1/(nt-10))
@@ -132,7 +124,7 @@ def figures_UFW(result_vec, plot_vec, points_vec, phi_vec, nrj, y_k, phi0):
 
     return None
 
-def UFW(acquis_0, iteration, nc, sigma, n_epoch=150, regul=.00001, geom='euclidean', method='bezier', lr=1e-2, epsilon=1., xi=1., n_start=1, n_sample=8):
+def UFW(acquis_0, iteration, nc, sigma, n_epoch=150, regul=.00001, geom='euclidean', method='bezier', lr=1e-2, epsilon=1., xi=1., n_start=1, n_sample=4):
     n = acquis_0.shape[-1]
 
     if method == 'exponential_RS':
@@ -177,7 +169,7 @@ def UFW(acquis_0, iteration, nc, sigma, n_epoch=150, regul=.00001, geom='euclide
                                          + (x[...,0].unsqueeze(1).unsqueeze(1)-Y.unsqueeze(2).unsqueeze(0))**2)/sigma)
 
 
-        phi, nrj[k], phi_vec[k], plot_vec[k], points_vec[k], result_vec[k] = Curve.fit(y, operator, timestamps, n_epoch, lr=lr, regul=regul)
+        phi, nrj[k], phi_vec[k], plot_vec[k], points_vec[k], result_vec[k] = Curve.fit(y, operator, timestamps, n_epoch, lr=lr, regul=regul, n_sample=n_sample)
         # optimizer.zero_grad()
         # result = Curve(timestamps).squeeze()
 
@@ -244,16 +236,16 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser( description="Training U-Net model for segmentation of brain MRI")
     parser.add_argument("--epochs", type=int, default=500, help="number of epochs to train (default: 100)")
-    parser.add_argument("--regularization", type=float, default=0.4, help="regularization parameter")
-    parser.add_argument("--n", type=int, default=32, help="number of points in the acquisition")
-    parser.add_argument("--nc", type=int, default=32, help="number of control points")
+    parser.add_argument("--regularization", type=float, default=0.08, help="regularization parameter")
+    parser.add_argument("--n", type=int, default=16, help="number of points in the acquisition")
+    parser.add_argument("--nc", type=int, default=16, help="number of control points")
     parser.add_argument("--geometry", type=str, default='euclidean', help="geometry of the space")
     parser.add_argument("--method", type=str, default='polygonal', help="parametrisation de la courbe")
     parser.add_argument("--lr", type=float, default=1e-2, help="learning rate")
     parser.add_argument("--nb_pics", type=int, default=3, help="number of spikes in the acquisition")
-    parser.add_argument("--epsilon", type=float, default=.4, help="epsilon parameter for the RS geometry")
-    parser.add_argument("--xi", type=float, default=1., help="xi parameter for the RS geometry")
-    parser.add_argument("--n_start", type=int, default=256, help="Number of curves for multistart")
+    parser.add_argument("--epsilon", type=float, default=.3, help="epsilon parameter for the RS geometry")
+    parser.add_argument("--xi", type=float, default=2., help="xi parameter for the RS geometry")
+    parser.add_argument("--n_start", type=int, default=128, help="Number of curves for multistart")
     parser.add_argument("--noise", type=float, default=.1, help="Number of curves for multistart")
 
     args, unknown = parser.parse_known_args()

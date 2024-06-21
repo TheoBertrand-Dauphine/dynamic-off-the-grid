@@ -170,31 +170,9 @@ def UFW(acquis_0, iteration, nc, sigma, n_epoch=150, regul=.00001, geom='euclide
 
 
         phi, nrj[k], phi_vec[k], plot_vec[k], points_vec[k], result_vec[k] = Curve.fit(y, operator, timestamps, n_epoch, lr=lr, regul=regul, n_sample=n_sample)
-        # optimizer.zero_grad()
-        # result = Curve(timestamps).squeeze()
-
-        # phi = torch.exp(-((result[:,1].unsqueeze(0).unsqueeze(0)-X.unsqueeze(2))**2 + (
-        #     result[:,0].unsqueeze(0).unsqueeze(0)-Y.unsqueeze(2))**2)/sigma)
-        
-        # a = ((-y)*phi).mean() + regul*Curve.Action(geometry=geom, epsilon=epsilon, xi=xi)
-        
-
-        # a.backward()
-        # optimizer.step()
-
-        # nrj[k, epoch] = a.data
-        # phi_vec[k, epoch, :, :] = phi.mean(dim=2).detach()
-        # result_vec[k, epoch, :, :] = result.detach().T
-        # points_vec[k, epoch, :, :] = Curve.get_control_points().detach()
-
-        # del a, points
         y -= phi.detach()
         
-        # plt.imshow(phi.max(dim=2).values.detach(), cmap='bone', origin='lower')
-        # plt.pause(0.1)
-    # wandb.log({'energy 1': nrj[0, :]})
-    # wandb.log({'energy 2': nrj[1, :]})
-    # wandb.log({'energy 3': nrj[2, :]})
+
     return(points_vec, phi_vec, nrj, plot_vec, result_vec)
 
 def evaluate_solution(estimated, y_k):

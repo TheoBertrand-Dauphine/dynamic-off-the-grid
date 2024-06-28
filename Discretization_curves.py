@@ -696,14 +696,11 @@ class PiecewiseGeodesic_RS(torch.nn.Module):
             result = self(timestamps)
             phi = operator(result)
 
-            # print(torch.stack([self.points, self.tangent_vectors], dim=2).shape)
-            # print(self.points[:,1:].shape)
-
             constraint_loss = ((odeint(self.RHS, torch.stack([self.points, self.tangent_vectors], dim=2), t=torch.tensor([0., 1.]))[-1, :, :-1, 0] - self.points[:,1:]) ** 2).mean(dim=[-1,-2])
-            # print(constraint_loss.shape)
             loss = (phi * (-y)).mean(dim=[-1,-2,-3]) + regul * self.Action() + constr * constraint_loss
             loss.mean().backward()
 
+            # Get euclidean gradients for the points and tangent vectors for the Riemannian gradient descent
             x_eucl_grad = self.points.grad
             x_eucl_grad = x_eucl_grad/(x_eucl_grad.norm(dim=2, keepdim=True) + 1e-16)
             v_eucl_grad = self.tangent_vectors.grad
@@ -718,6 +715,7 @@ class PiecewiseGeodesic_RS(torch.nn.Module):
 
                     y0 = torch.stack([self.points, -lr * riem_grad, self.tangent_vectors - lr * v_eucl_grad], dim=2)
 
+                # Perform exponential map and parallel transport for the Riemannian Gradient Descent
                 result_ode = odeint(self.RHS_optim, y0, t=torch.linspace(0, 1, 2))[-1]
 
                 # print(result_ode.shape)

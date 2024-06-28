@@ -18,6 +18,7 @@ from Discretization_curves import BezierCurveModule, PolygonalCurveModule, Piece
 
 torch.manual_seed(11)
 
+# Function that builds the synthetic example with 3 curves
 def build_3_spikes_acquisition(nt,sigma, dom_size, noise_level=0.6):
     timestamps = torch.linspace(0, 1, nt)
     reverse_time = torch.arange(0, 1, 1/(nt-10))
@@ -50,6 +51,7 @@ def build_3_spikes_acquisition(nt,sigma, dom_size, noise_level=0.6):
 
     return phi0, y_k
 
+# Function that builds the synthetic example with 2 curves
 def build_2_spikes_acquisition(nt,sigma, dom_size, noise_level=0.6):
     timestamps = torch.arange(0, 1, 1/nt)
     y_1 =  torch.stack([-0.8+1.6*timestamps, -(0.8-1.6*timestamps)])
@@ -73,6 +75,9 @@ def build_2_spikes_acquisition(nt,sigma, dom_size, noise_level=0.6):
 
     return phi0, y_k
 
+
+
+# Some  visualizatio of the results
 def figures_UFW(result_vec, plot_vec, points_vec, phi_vec, nrj, y_k, phi0):
     for k in range(plot_vec.shape[0]):
         plt.figure(figsize=(14, 5))
@@ -124,6 +129,7 @@ def figures_UFW(result_vec, plot_vec, points_vec, phi_vec, nrj, y_k, phi0):
 
     return None
 
+# Frank-Wolfe algorithm
 def UFW(acquis_0, iteration, nc, sigma, n_epoch=150, regul=.00001, geom='euclidean', method='bezier', lr=1e-2, epsilon=1., xi=1., n_start=1, n_sample=4):
     n = acquis_0.shape[-1]
 
@@ -136,8 +142,10 @@ def UFW(acquis_0, iteration, nc, sigma, n_epoch=150, regul=.00001, geom='euclide
 
     y = acquis_0
 
+    # Define uniform timestamps
     timestamps = torch.linspace(0, 1, n)
 
+    # Arrays to store the results along the Gradient Descent steps
     nrj = torch.zeros(iteration, n_epoch)
     phi = torch.zeros(size=acquis_0.shape)
     result_vec = torch.zeros(iteration, n_epoch, d, n)
@@ -148,14 +156,17 @@ def UFW(acquis_0, iteration, nc, sigma, n_epoch=150, regul=.00001, geom='euclide
     x = torch.linspace(-1, 1, dom_size)
     X, Y = torch.meshgrid(x, x, indexing='ij')
 
+    # Define the right-hand side of the geodesic equation for the RS geometry
     if method=='exponential_RS': #Feed the same compiled RHS function to all diracs to avoid recompiling it at each iteration
         RHS = torch.compile(RHS_geodesic_RS_2D(epsilon=epsilon, xi=xi))
         RHS_optim = torch.compile(RHS_geodesic_RS_parallel_2D(epsilon=epsilon, xi=xi))
 
+    # Loop over the number of iterations for tha Frank-Wolfe algorithm
     for k in tqdm(range(iteration),
                   desc='Computing UFW',
                   position=0, leave=True):
 
+        # Initialize curve with desired parametrization
         if method=='bezier':
             Curve = BezierCurveModule(nc, n_start, w=y, timestamps=timestamps)
         elif method=='polygonal':
@@ -164,22 +175,28 @@ def UFW(acquis_0, iteration, nc, sigma, n_epoch=150, regul=.00001, geom='euclide
             Curve = PiecewiseGeodesic_RS(n_points=nc, n_start=n_start, epsilon=epsilon, xi=xi, RHS=RHS, RHS_optim=RHS_optim, w=y, timestamps=timestamps)
         else:
             raise ValueError('Unknown method')
+        
 
+        # Define acquisition operator
         operator = lambda x: torch.exp(-((x[...,1].unsqueeze(1).unsqueeze(1)-X.unsqueeze(2).unsqueeze(0))**2 
                                          + (x[...,0].unsqueeze(1).unsqueeze(1)-Y.unsqueeze(2).unsqueeze(0))**2)/sigma)
 
-
+        # Execute Fit method to find the curve minimizing the linearized energy
         phi, nrj[k], phi_vec[k], plot_vec[k], points_vec[k], result_vec[k] = Curve.fit(y, operator, timestamps, n_epoch, lr=lr, regul=regul, n_sample=n_sample)
+        
+        # Update the residual
         y -= phi.detach()
         
 
     return(points_vec, phi_vec, nrj, plot_vec, result_vec)
 
 def evaluate_solution(estimated, y_k):
-
+    # Compute the mean squared error between the estimated curve and the ground-truth
     return ((estimated[:,None,:2,:] - torch.stack(y_k)[None,:,:,:])**2).mean(dim=(2,3)).min(dim=0).values.sum()
 
 def main(args):
+
+    # Some wandb intialization for logging
     wandb.login()
     wandb.init(name = 'fine_tuning_' + str(args.nb_pics) + '_spikes', config = args)
 
@@ -191,6 +208,7 @@ def main(args):
 
     sigma = (0.2)**2
 
+    # Select case with 3 or 2 spikes
     if nb_pics==3:
         phi0, y_k = build_3_spikes_acquisition(n, sigma, dom_size, args.noise)
     elif nb_pics==2:

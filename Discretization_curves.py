@@ -17,17 +17,10 @@ import matplotlib.pyplot as plt
 from torchdiffeq import odeint_adjoint as odeint
 
 from tqdm import tqdm
-
-# import agd
-# from agd import Eikonal
-# from agd.Metrics import Riemann
-# from agd.LinearParallel import outer_self as Outer
-
 import time
 
-# agd.Eikonal.LibraryCall.binary_dir['FileHFM']='/home/tbertrand/Bureau/HFM_bin/bin'
 
-
+# if necessary we define the Reeds-Shepp norm in a separate function
 def RS_relaxed_norm(x, v, eps=.05, xi=.1):
     assert(v.ndim == 2 and v.shape[1] == 3)
     # assert v.shape[0] == 3
@@ -36,6 +29,7 @@ def RS_relaxed_norm(x, v, eps=.05, xi=.1):
            + (1/(eps**2))*(-torch.sin(theta)*v[:,0] + torch.cos(theta)*v[:,1])**2
            + (xi**2)*v[:,2]**2)
 
+# Module for Bezier curves
 class BezierCurveModule(torch.nn.Module):
     '''
         Module wrapper for Bezier curves
@@ -50,6 +44,7 @@ class BezierCurveModule(torch.nn.Module):
     def __init__(self, nc=8, n_start=1, w=None, timestamps=None, h=1.):
         super().__init__()
         if w==None:
+            # Initiate n_start sets of control points at random
             self.control_points = torch.randn([n_start, nc,2], requires_grad=True)
         else:
             x=torch.linspace(-1,1,w.shape[0])
@@ -60,11 +55,12 @@ class BezierCurveModule(torch.nn.Module):
 
             w_interp = ((1-(timestamps_control_points*(w.shape[-1]-1)-indices)).unsqueeze(0).unsqueeze(0)*w[...,indices] + (timestamps_control_points*(w.shape[-1]-1)-indices).unsqueeze(0).unsqueeze(0)*w[...,indices+1].squeeze())
             P = (torch.exp(h*w_interp)/torch.exp(h*w_interp).sum(dim=[0,1], keepdim=True)).numpy()
+            
+            # Initiate n_start sets of control points at random by sampling from a distribution depending on the residual
             random_choice = np.stack([np.random.choice(P.shape[0]*P.shape[1],n_start,p=P[:,:,i].reshape([-1])) for i in range(P.shape[-1])])
             self.control_points = X.reshape([2,-1])[:,random_choice].permute([2,1,0])
             self.control_points.requires_grad=True
 
-        # self.control_points = torch.zeros([nc,2], requires_grad=True)
         self.order = nc
 
         self.chosen_control_points = None
@@ -72,12 +68,14 @@ class BezierCurveModule(torch.nn.Module):
         self.n_start = n_start
 
         n = self.order-1
-        #Define the matrix for the computation of the Action
+
+        #Define the matrix for the computation of the Action in the Eucledian case
         self.M =(1/(2*n-1)) * (scipy.special.comb(n-1,np.arange(0,n))[:,None]*scipy.special.comb(n-1,np.arange(0,n))[None,:])/hankel(scipy.special.comb(2*n-2,np.arange(0,n)), scipy.special.comb(2*n-2,np.arange(n-1,2*n-1)))
         
     def get_control_points(self):
+        # function to access control points
         return self.control_points
-    # @torch.compile
+
     def forward(self, timestamps):
         '''
         Evaluation of Bezier curve via naive implementation of de Casteljau algorithm
@@ -164,7 +162,27 @@ class BezierCurveModule(torch.nn.Module):
         return self(torch.linspace(0,1,n_samples*self.order)).detach()
 
     def fit(self, y, operator, timestamps, n_epoch=1, lr=1e-2, regul=1e-2, n_sample=8):
+        """
+        Fits the model to the given data using the specified parameters.
 
+        Args:
+            y (torch.Tensor): The target values.
+            operator (callable): The operator function to apply to the model's output.
+            timestamps (torch.Tensor): The timestamps for the data.
+            n_epoch (int, optional): The number of epochs to train the model. Defaults to 1.
+            lr (float, optional): The learning rate for the optimizer. Defaults to 1e-2.
+            regul (float, optional): The regularization parameter. Defaults to 1e-2.
+            n_sample (int, optional): The number of samples to use for plotting. Defaults to 8.
+
+        Returns:
+            tuple: A tuple containing the following elements:
+                - phi (torch.Tensor): The phi values for the best control points.
+                - nrj (torch.Tensor): The energy values for each epoch.
+                - phi_vec (torch.Tensor): The phi values for each epoch.
+                - plot_vec (torch.Tensor): The plot values for each epoch.
+                - points_vec (torch.Tensor): The control points for each epoch.
+                - result_vec (torch.Tensor): The result values for each epoch.
+        """
         optimizer = torch.optim.Adam([self.control_points], lr=lr)
         
         nrj = torch.zeros(self.n_start, n_epoch)
@@ -199,7 +217,7 @@ class BezierCurveModule(torch.nn.Module):
         return  phi[idx_best], nrj[idx_best], phi_vec[idx_best], plot_vec[idx_best], points_vec[idx_best], result_vec[idx_best]
 
 
-
+# Module for Polygonial curves
 class PolygonalCurveModule(torch.nn.Module):
     '''
         Module wrapper for Polygonal curves
@@ -216,8 +234,8 @@ class PolygonalCurveModule(torch.nn.Module):
     
     def __init__(self, nc=8, n_start=1, w=None, timestamps=None):
         super().__init__()
-        # assert w.shape[-1]==nc
         if w==None:
+            # Initiate n_start sets of control points at random
             self.control_points = torch.randn([n_start,nc,2], requires_grad=True)
         else:
             x=torch.linspace(-1,1,w.shape[0])
@@ -228,6 +246,8 @@ class PolygonalCurveModule(torch.nn.Module):
 
             w_interp = ((1-(timestamps_control_points*(w.shape[-1]-1)-indices)).unsqueeze(0).unsqueeze(0)*w[...,indices] + (timestamps_control_points*(w.shape[-1]-1)-indices).unsqueeze(0).unsqueeze(0)*w[...,indices+1].squeeze())
             P = (torch.exp(w_interp)/torch.exp(w_interp).sum(dim=[0,1], keepdim=True)).numpy()
+
+            # Initiate n_start sets of control points at random by sampling from a distribution depending on the residual
             random_choice = np.stack([np.random.choice(P.shape[0]*P.shape[1],n_start,p=P[:,:,i].reshape([-1])) for i in range(P.shape[-1])])
             self.control_points = X.reshape([2,-1])[:,random_choice].permute([2,1,0])
             self.control_points.requires_grad=True
@@ -242,6 +262,7 @@ class PolygonalCurveModule(torch.nn.Module):
         self.n_start = n_start
         
     def get_control_points(self):
+        # method to access control points
         return self.control_points
         
     def forward(self, timestamps):
@@ -271,6 +292,7 @@ class PolygonalCurveModule(torch.nn.Module):
         return self(torch.linspace(0,1,n_samples*self.order)).detach()
     
     def Action(self, geometry='euclidean', n_evaluation=128, epsilon=1., xi=1.):
+        # compute the action of the curve
         assert geometry=='euclidean'
         if geometry=='euclidean':
             # return (self.derivative(torch.linspace(0,1,n_evaluation)).squeeze()**2).mean()
@@ -284,7 +306,27 @@ class PolygonalCurveModule(torch.nn.Module):
             raise ValueError('bad shape/geometry')
         
     def fit(self, y, operator, timestamps, n_epoch=1, lr=1e-2, regul=1e-2, n_sample=8):
+        """
+        Fits the model to the given data by optimizing the control points.
 
+        Args:
+            y (torch.Tensor): The target values.
+            operator (callable): The operator function to apply to the model's output.
+            timestamps (torch.Tensor): The timestamps for the data.
+            n_epoch (int, optional): The number of epochs to train for. Defaults to 1.
+            lr (float, optional): The learning rate for the optimizer. Defaults to 1e-2.
+            regul (float, optional): The regularization parameter. Defaults to 1e-2.
+            n_sample (int, optional): The number of samples to use for plotting. Defaults to 8.
+
+        Returns:
+            tuple: A tuple containing the following elements:
+                - phi (torch.Tensor): The optimized phi values.
+                - nrj (torch.Tensor): The energy values.
+                - phi_vec (torch.Tensor): The phi values for each epoch.
+                - plot_vec (torch.Tensor): The plot values for each epoch.
+                - points_vec (torch.Tensor): The control points for each epoch.
+                - result_vec (torch.Tensor): The result values for each epoch.
+        """
         optimizer = torch.optim.Adam([self.control_points], lr=lr)
         
         nrj = torch.zeros(self.n_start, n_epoch)
@@ -317,6 +359,8 @@ class PolygonalCurveModule(torch.nn.Module):
 
         return  phi[idx_best], nrj[idx_best], phi_vec[idx_best], plot_vec[idx_best], points_vec[idx_best], result_vec[idx_best]
 
+
+# Define RHS for solving the geodesic equation in the Reeds-Shepp geometry
 class RHS_geodesic_RS_2D(torch.nn.Module):
     """
     Class inheriting from torch.nn.Module, representing the right-hand side (RHS) of the ODE dy/dt = f(t,y),
@@ -525,6 +569,7 @@ class RHS_geodesic_RS_parallel_2D(torch.nn.Module):
         return g_inv
     
 
+# Define RHS for solving the paralell transport along the geodesic equation in the Reeds-Shepp geometry for the update step in the Riemannian gradient descent
 class PiecewiseGeodesic_RS(torch.nn.Module):
     '''
     Module wrapper for Exponential curves in Reeds-Shepp space
@@ -615,41 +660,6 @@ class PiecewiseGeodesic_RS(torch.nn.Module):
                 list.append(output[:, :, 0, 0])
         return torch.cat(list, dim=0).permute([1, 0, 2])
 
-    # def derivative(self, timestamps):
-    #     '''
-    #     Evaluate the time derivative of the piecewise geodesic curves.
-
-    #     Parameters:
-    #         timestamps (torch.Tensor): Timestamps at which to evaluate the derivative.
-
-    #     Returns:
-    #         torch.Tensor: Time derivative of the piecewise geodesic curves.
-    #     '''
-    #     timestamps_to_int = torch.minimum(torch.floor(timestamps * (self.order)).long(), torch.tensor(self.order-1))
-
-    #     list = []
-
-    #     for k in range(self.order-1):
-    #         mask_k = (timestamps_to_int == k)
-    #         if mask_k.sum() > 0:
-    #             output = odeint(self.RHS, torch.stack([self.points[k].unsqueeze(0), self.tangent_vectors[k].unsqueeze(0)], dim=1), t=self.order * timestamps[mask_k] - k)
-    #             list.append(output[:, :, 1])
-
-    #     return torch.stack(list)
-
-    # def curves_for_plots(self, n_samples=16):
-    #     '''
-    #     Generate curves for plotting.
-
-    #     Parameters:
-    #         n_samples (int, optional): Number of samples. Defaults to 16.
-
-    #     Returns:
-    #         torch.Tensor: Curves for plotting.
-    #     '''
-    #     y0 = torch.stack([self.points, self.tangent_vectors], dim=1)
-    #     return odeint(self.RHS, y0, t=torch.linspace(0, 1, n_samples))[:, :, 0].permute([1, 0, 2])
-
     def Action(self):
         '''
         Compute the action of the curves.
@@ -727,315 +737,3 @@ class PiecewiseGeodesic_RS(torch.nn.Module):
         idx_best = torch.argmin(nrj[:,-1])
         print(constraint_loss.data)
         return  phi[idx_best], nrj[idx_best], phi_vec[idx_best], plot_vec[idx_best], points_vec[idx_best], result_vec[idx_best]
-
-    
-# class RHS_geodesic_isotropic2D(torch.nn.Module):
-
-#     def __repr__(self):
-#         return 'Class inherinting from torch.nn.Module, forward function outputs the RHS f of the ODE dy/dt = f(t,y), y(0) = y0 in the case of the geodesic equation in 2D with metric potential(x)*torch.eye(2).'
-
-#     def __init__(self, potential):
-#         super().__init__()
-#         self.potential = potential # pass the potential function as attribute
-     
-#     def forward(self,t,y):
-#         v = torch.stack([y[1] , -(y[1].unsqueeze(0).unsqueeze(0)*self.christoffels(y[0])*(y[1].unsqueeze(0).unsqueeze(2))).sum(dim=[1,2])]) #returns the right-hand side of the ODE for the geodesic equation defined by the potential
-#         return v
-    
-#     def christoffels(self,x):
-#         Gamma = torch.zeros([2,2,2]) # Initialize Tensor of christoffel symbols
-
-#         with torch.enable_grad(): # Need grad to compute derivatives
-#             x_in = x.clone()
-#             if not x_in.requires_grad:
-#                 x_in.requires_grad = True
-            
-#             jacobian = torch.autograd.grad(
-#                 outputs = .5*torch.log(self.potential(x_in)),
-#                 inputs = x_in,
-#                 create_graph = True,
-#                 retain_graph = True,
-#                 only_inputs = True,
-#                 allow_unused = True)[0] # Christoffel symbols are expressed in terms of the derivatives of the log of the potential
-            
-#             Gamma[0,0,0] = jacobian[0] # Build the tensor from the computed derivatives
-#             Gamma[0,0,1] = jacobian[1]
-#             Gamma[0,1,0] = jacobian[1]
-#             Gamma[0,1,1] = -jacobian[0]
-#             Gamma[1,0,0] = -jacobian[1]
-#             Gamma[1,0,1] = jacobian[0]
-#             Gamma[1,1,0] = jacobian[0]
-#             Gamma[1,1,1] = jacobian[1]
-#         return Gamma
-
-
-# class ExponentialCurveModule(torch.nn.Module):
-#     '''
-#         Module wrapper for Exponential curves
-    
-#         Args:
-#             control_points: Points defining t
-        
-#         Note : 
-#     '''
-    
-#     def __repr__(self):
-#         return "Polygonal curves"
-    
-#     def __init__(self, control_points, potential, discretization_times = None):
-#         super().__init__()
-#         self.first_point = control_points[0] #
-#         self.tangent_vectors = control_points[1:]
-#         if discretization_times==None:
-#             self.discretization_times = torch.linspace(0,1,control_points.shape[0])
-#         else:
-#             self.discretization_times =  discretization_times
-
-#         self.order = control_points.shape[0]
-#         self.dim =  control_points.shape[1]
-
-#         self.potential = potential
-#         self.RHS = RHS_geodesic_isotropic2D(self.potential)
-
-#         assert (self.order == self.discretization_times.shape[0])
-        
-#     def forward(self, timestamps):
-#         '''
-#         Evaluation of
-
-#         Parameters
-#         ----------
-#         timestamps : torch.Tensor
-#             1D torch.Tensor containign the timestamps at which we want to compute the position of the curve via de Casteljau's algorithm.
-
-#         Returns
-#         -------
-#         torch.Tensor
-#             torch.Tensor containing the computed points.
-
-#         # '''
-#         # assert sorted(list(timestamps)) == list(timestamps)
-#         # for t in sorted(list(timestamps)):
-
-        
-#         # indices = torch.floor(timestamps*(self.control_points.shape[0]-1)).to(int)
-#         # return ((1-(timestamps*(self.control_points.shape[0]-1)-indices)).squeeze(0).T*self.control_points[indices].squeeze() + (timestamps*(self.control_points.shape[0]-1)-indices).squeeze(0).T*self.control_points[indices+1].squeeze()).T
-
-#         if timestamps==self.discretization_times:
-#             list = [self.first_point]
-#             for k in range(self.tangent_vectors.shape[0]):
-#                 print(list)
-#                 y0 = torch.stack([list[-1], self.tangent_vectors[k]])
-#                 list.append(odeint(self.RHS,y0,t=torch.linspace(0,1,2))[-1][0])
-
-#         else:
-#             raise ValueError('not implemented yet')
-        
-#         return torch.stack(list)
-    
-#     def derivative(self,timestamps):
-#         '''
-#         Evaluate time derivative
-
-#         Parameters
-#         ----------
-#         timestamps : torch.Tensor
-#             1D torch.Tensor containign the timestamps at which we want to compute the position of the curve via de Casteljau's algorithm.
-
-#         Returns
-#         -------
-#         torch.Tensor
-#             torch.Tensor containing the computed points.
-
-#         '''
-#         if timestamps == self.discretization_times:
-#             return self.tangent_vectors/(self.discretization_times[1:] - self.discretization_times[:-1])
-#         else:
-#             raise ValueError('Not implemented yet')
-        
-#     def curves_for_plots(self, n_samples=16):
-#         list = [self.first_point.unsqueeze(0)]
-#         for k in range(self.tangent_vectors.shape[0]):
-#             print(k)
-#             y0 = torch.stack([list[-1][-1], self.tangent_vectors[k]])
-#             list.append(odeint(self.RHS,y0,t=torch.linspace(0,1,n_samples))[:,0])
-
-#         return torch.stack(list[1:])
-
-
-# class RHS_geodesic_RS_2D(torch.nn.Module):
-
-#     def __repr__(self):
-#         return 'Class inherinting from torch.nn.Module, forward function outputs the RHS f of the ODE dy/dt = f(t,y), y(0) = y0 in the case of the geodesic equation in 2D with metric potential(x)*torch.eye(2).'
-
-#     def __init__(self, epsilon = 1., xi = 1.):
-#         super().__init__()
-#         self.epsilon = epsilon
-#         self.xi = xi
-     
-#     def forward(self,t,y):
-#         v = torch.stack([y[1] , -(y[1].unsqueeze(0).unsqueeze(0)*self.christoffels(y[0])*(y[1].unsqueeze(0).unsqueeze(2))).sum(dim=[1,2])]) #returns the right-hand side of the ODE for the geodesic equation defined by the potential
-#         return v
-    
-#     def christoffels(self,x):
-#         Gamma = torch.zeros([3,3,3]) # Initialize Tensor of christoffel symbols
-
-#         with torch.enable_grad(): # Need grad to compute derivatives
-#             x_in = x.clone()
-#             if not x_in.requires_grad:
-#                 x_in.requires_grad = True
-            
-#             jacobian = torch.autograd.functional.jacobian(
-#                 func = self.metric_matrix,
-#                 inputs = x_in,
-#                 create_graph = True).permute([2,0,1]) # Christoffel symbols are expressed in terms of the derivatives of the log of the potential
-            
-#             g_inv = self.metric_inverse_matrix(x_in)
-            
-#             Gamma[2] = -(1/(2*self.xi**2))*jacobian[2]
-
-#             Gamma[0,2,0] = 0.5*(g_inv[0,0]*jacobian[2,0,0] + g_inv[0,1]*jacobian[2,1,0])
-#             Gamma[0,2,1] = 0.5*(g_inv[0,0]*jacobian[2,0,1] + g_inv[0,1]*jacobian[2,1,1])
-
-#             Gamma[0,0,2] = 0.5*(g_inv[0,0]*jacobian[2,0,0] + g_inv[0,1]*jacobian[2,1,0])
-#             Gamma[0,1,2] = 0.5*(g_inv[0,0]*jacobian[2,0,1] + g_inv[0,1]*jacobian[2,1,1])
-
-#             Gamma[1,2,0] = 0.5*(g_inv[1,0]*jacobian[2,0,0] + g_inv[1,1]*jacobian[2,1,0])
-#             Gamma[1,2,1] = 0.5*(g_inv[1,0]*jacobian[2,0,1] + g_inv[1,1]*jacobian[2,1,1])
-
-#             Gamma[1,0,2] = 0.5*(g_inv[1,0]*jacobian[2,0,0] + g_inv[1,1]*jacobian[2,1,0])
-#             Gamma[1,1,2] = 0.5*(g_inv[1,0]*jacobian[2,0,1] + g_inv[1,1]*jacobian[2,1,1])
-
-#         return Gamma
-    
-#     def metric_matrix(self,x): # Returns metric tensor matrix at point x
-
-#         R = torch.stack([torch.stack([torch.cos(x[...,2]), torch.sin(x[...,2]), torch.tensor(0.)]),
-#                             torch.stack([-torch.sin(x[...,2]), torch.cos(x[...,2]), torch.tensor(0.)]),
-#                             torch.tensor([0., 0., 1.])])
-            
-#         L = torch.diag(torch.tensor([1., 1/(self.epsilon**2), self.xi**2]))
-
-#         g = (R.T)@(L@R)
-
-#         return g
-     
-#     def metric_inverse_matrix(self,x): # Returns the inverted metric tensor matrix at point x
-
-#         R = torch.stack([torch.stack([torch.cos(x[...,2]), torch.sin(x[...,2]), torch.tensor(0.)]),
-#                             torch.stack([-torch.sin(x[...,2]), torch.cos(x[...,2]), torch.tensor(0.)]),
-#                             torch.tensor([0., 0., 1.])])
-            
-#         L = torch.diag(1/torch.tensor([1., 1/(self.epsilon**2), self.xi**2]))
-
-#         g_inv = (R.T)@(L@R)
-
-#         return g_inv
-
-# class ExponentialCurveModule_RS(torch.nn.Module):
-#     '''
-#         Module wrapper for Exponential curves in Reeds-Shepp space
-    
-#         Args:
-#             control_points: Points defining t
-        
-#         Note : 
-#     '''
-    
-#     def __repr__(self):
-#         return "Piecewise exponential curves for relaxed Reeds-Shepp space"
-    
-#     def __init__(self, control_points, epsilon = 1., xi = 1., discretization_times = None):
-#         super().__init__()
-#         self.first_point = control_points[0] #
-#         self.tangent_vectors = control_points[1:]
-#         if discretization_times==None:
-#             self.discretization_times = torch.linspace(0,1,control_points.shape[0])
-#         else:
-#             self.discretization_times =  discretization_times
-
-#         self.order = control_points.shape[0]
-#         self.dim =  control_points.shape[1]
-
-#         self.epsilon = epsilon
-#         self.xi = xi
-#         self.RHS = RHS_geodesic_RS_2D(epsilon = self.epsilon, xi = self.xi)
-
-#         assert (self.order == self.discretization_times.shape[0])
-        
-#     def forward(self, timestamps):
-#         '''
-#         Evaluation of
-
-#         Parameters
-#         ----------
-#         timestamps : torch.Tensor
-#             1D torch.Tensor containign the timestamps at which we want to compute the position of the curve via de Casteljau's algorithm.
-
-#         Returns
-#         -------'RS
-#         torch.Tensor
-#             torch.Tensor containing the computed points.
-
-#         # '''
-#         # assert sorted(list(timestamps)) == list(timestamps)
-#         # for t in sorted(list(timestamps)):
-
-        
-#         # indices = torch.floor(timestamps*(self.control_points.shape[0]-1)).to(int)
-#         # return ((1-(timestamps*(self.control_points.shape[0]-1)-indices)).squeeze(0).T*self.control_points[indices].squeeze() + (timestamps*(self.control_points.shape[0]-1)-indices).squeeze(0).T*self.control_points[indices+1].squeeze()).T
-#         if (timestamps.squeeze()==self.discretization_times).all():
-#             list = [self.first_point]
-#             for k in range(self.tangent_vectors.shape[0]):
-#                 y0 = torch.stack([list[-1], self.tangent_vectors[k]])
-#                 list.append(odeint(self.RHS,y0,t=torch.linspace(0,1,2))[-1][0])
-
-#         else:
-#             raise ValueError('not implemented yet')
-        
-#         return torch.stack(list)
-    
-#     def derivative(self,timestamps):
-#         '''
-#         Evaluate time derivative
-
-#         Parameters
-#         ----------
-#         timestamps : torch.Tensor
-#             1D torch.Tensor containign the timestamps at which we want to compute the position of the curve.
-
-#         Returns
-#         -------
-#         torch.Tensor
-#             torch.Tensor containing the computed points.
-
-#         '''
-#         if timestamps == self.discretization_times:
-#             return self.tangent_vectors/(self.discretization_times[1:] - self.discretization_times[:-1])
-#         else:
-#             raise ValueError('Not implemented yet')
-        
-#     def curves_for_plots(self, n_samples=16):
-#         list = [self.first_point.unsqueeze(0)]
-#         for k in range(self.tangent_vectors.shape[0]):
-#             y0 = torch.stack([list[-1][-1], self.tangent_vectors[k]])
-#             list.append(odeint(self.RHS,y0,t=torch.linspace(0,1,n_samples))[:,0])
-
-#         return torch.stack(list[1:])
-
-#     def Action(self):
-
-#         points = self(self.discretization_times)
-
-#         R = torch.stack([torch.stack([torch.cos(points[...,2]), torch.sin(points[...,2]), torch.zeros(points.shape[0])],dim=1),
-#                             torch.stack([-torch.sin(points[...,2]), torch.cos(points[...,2]), torch.zeros(points.shape[0])], dim=1),
-#                             torch.stack([torch.zeros(points.shape[0]), torch.zeros(points.shape[0]), torch.ones(points.shape[0])], dim=1)], dim=1).detach()
-            
-#         L = torch.diag(1/torch.tensor([1., 1/(self.epsilon**2), self.xi**2])).unsqueeze(0)
-
-#         v = torch.matmul(R[:-1],(self.tangent_vectors.unsqueeze(2)))
-
-#         return (v.permute([0,2,1])@(L@v)).squeeze().sum()
-    
-#     def get_control_points(self):
-#         return torch.concat([self.first_point.unsqueeze(0), self.tangent_vectors])
